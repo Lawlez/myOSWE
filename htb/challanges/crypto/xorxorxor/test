@@ -1,0 +1,11 @@
+key:  b'\x18\xa9\x8d\xb8'
+guess:  3   \xa9\x90\xb8
+        \x1f\xa9\x90\xb8 
+
+actual guesses:
+pY\xf0\x95
+pY\xf0\xdd
+pY\xf0\x8a
+pY\xf0\x9c
+pY\xf0\x9a
+Flag: 70ddefc36cc1e4cb47c0fee779f6f9dd6bddd2cc77ddecd447dde4cc6bd4

@@ -22,7 +22,10 @@ class XOR:
 def main():
     global flag
     global output
-    i = 1
+    crypto = XOR()
+    enc = crypto.encrypt(flag)
+    print ('Flag:', enc.hex())
+    i = 3
     while i == 1:
         crypto = XOR()
         dec2 = crypto.decrypt(output)
