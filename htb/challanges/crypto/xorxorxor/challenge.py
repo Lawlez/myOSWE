@@ -2,11 +2,15 @@
 import os
 flag = open('flag.txt', 'r').read().strip().encode()
 output = bytes.fromhex(open('output.txt', 'r').read().strip())
+output2 = open('output.txt', 'r').read().strip()
+output3 = bytes.fromhex('134af6e1297bc4a96f6a87fe046684e8047084ee046d84c5282dd7ef292dc9')
 #print(flag)
-#print(output)
+print(output)
+print(output2)
+print(output3)
 class XOR:
     def __init__(self):
-        self.key = os.urandom(4)
+        self.key = bytes.fromhex('5b1eb49a') #os.urandom(4)
         print('key: ', self.key)
     def encrypt(self, data: bytes) -> bytes:
         xored = b''
@@ -25,6 +29,7 @@ def main():
     crypto = XOR()
     enc = crypto.encrypt(flag)
     print ('Flag:', enc.hex())
+
     i = 3
     while i == 1:
         crypto = XOR()
@@ -43,11 +48,12 @@ def main():
         
     #crypto = XOR()
     #enc = crypto.encrypt(flag)
-    #dec = crypto.decrypt(enc)
-    #dec2 = crypto.decrypt(output)
-    #print ('Flag:', enc)
-    #print ('solve: ', dec)
-    #print ('solve2: ', dec2)
+
+    dec = crypto.decrypt(bytes.fromhex(enc.hex()))
+    dec2 = crypto.decrypt(output)
+    #print ('Flag:', enc.hex())
+    print ('solve: ', dec)
+    print ('solve2: ', dec2)
 
 if __name__ == '__main__':
     main()
