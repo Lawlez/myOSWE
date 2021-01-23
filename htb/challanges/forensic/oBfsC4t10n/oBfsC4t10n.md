@@ -22,39 +22,41 @@ canonicalUrl:
 
 This is my Write Up for the "oBfsC4t10n" challenge from Hack The Box.
 
-we get a zip file. after extraction we are presented with an html file telling us to download an excel file.
-The excel file has been included in the html as a base64 encoded string, lets just save that info for later base64.txt.
+We are given a zip file. after extraction we are presented with an **html** file telling us to download an **excel file**.
+The excel file has been included in the html as a **base64 encoded** string, lets just save that info for later `base64.txt` in case we need it.
 
-so after we checked the html and demed the download save lets fetch the excel file.
+> decoding `base64.txt` actually gives us a valid excel like file.
+
+After we checked the HTML and deemed the download save lets fetch the excel file.
 
 ## Enumeration
 
-Instead ofn trying to open or analyze the file on my machine, lets go ahead and upload it to ANY.RUN.
+Instead of trying to open or analyze the file on our own machine, lets go ahead and upload it to **ANY.RUN**.
 
-> ANY.RUN is a online Sandbox service that allows you to open various suspicious files or programms to fully analyze what would happen.
+> https://ANY.RUN is a **online Sandbox** service that allows you to open various suspicious files or programms to fully analyze what would happen, without the danger.
 
-After Testing the file with AN.RUN we were able to see how the exploit would work and what would be done.
+After Testing the file with **ANY.RUN** we were able to see how the exploit would work and what would be done. So we tested on a **Windows 7** Machine, after opening the file, the exploit imediately startet to run:
 
-We tested on a Windows 7 Machine, after opening the file, the exploit imediately startet to run:
+- At first a temp file was created under `C:\Users\admin\AppData\Local\Temp\CVR40EB.tmp.cvr`
+- Then a what seems to be `visual basic script` executer was added here: `C:\Users\admin\AppData\Local\Temp\VBE\MSForms.exd`
+- followed by a `.hta` file with a funny name..: `C:\Users\admin\AppData\Local\Temp\LwTHLrGh.hta` <-- lemme guess thats the one.
+- it then makes use of `mshta.exe` to try and execute the `LwTHLrGh.hta` file.
 
-At first a temp file was created under `C:\Users\admin\AppData\Local\Temp\CVR40EB.tmp.cvr`
-Then a what seems to be `visual basic script` executer was added here: `C:\Users\admin\AppData\Local\Temp\VBE\MSForms.exd`
-followed by a `.hta` file with a funny name..: `C:\Users\admin\AppData\Local\Temp\LwTHLrGh.hta` <-- lemme guess thats the one.
-it then makes use of `mshta.exe` to try and execute the `LwTHLrGh.hta` file.
+- then ANY.RUN stops executing the file.
 
-here ANY.RUN stops executing the file.
-
-I went ahead and downloaded the `MSForms.exd` as well as the `LwTHLrGh.hta` file so we can analyze them further.
+I went ahead and _downloaded_ the `MSForms.exd` as well as the `LwTHLrGh.hta` file so we can analyze them further.
 
 ## Analyzing `LwTHLrGh.hta`
 
-.hta is a propriatary file format used by microsoft, its Called '**HT**ML **A**pplication' and supports HTML code as well as Visual Basic or JScript. This format was meant to be used by Internet Explorer.
-
-The default file-association for the .hta extension is the Microsoft HTML Application Host (mshta.exe). If you have not disabled or changed this file association, in effect the HTA file behaves like an executable when double-clicked. An HTA runs as a fully trusted application and as a result has a lot more privileges than a normal HTML file.
+> .hta is a propriatary file format used by microsoft, its called '**HT**ML **A**pplication' and supports HTML code as well as **Visual Basic** or **JScript**. This format was meant to be used by Internet Explorer.
+>
+> The **default file-association** for the .hta extension is the Microsoft HTML Application Host (**mshta.exe**). If you have not disabled or changed this file association, in effect the HTA file behaves like an executable when double-clicked. An **HTA runs** as a **fully trusted application** and as a result has a lot **more privileges than a normal HTML** file.
 
 Sounds dangerous, nice!
 
-So lets disect this bitch, wehn opening the file we see it has a rathr clear structure and a huge VB Script.
+So lets disect this bitch!
+
+When opening the file we see it has a rather clear structure, a huge VB Script and **even comments**. How nice of the hacker not to obfuscate his code too much, thanks @0xdf. ;-)
 
 ```
 "<html><head>
@@ -68,8 +70,9 @@ So lets disect this bitch, wehn opening the file we see it has a rathr clear str
 
 so naturally, since its practiacally all the code, we strip the vbcode out of the .hta to make it readable.
 
-Thank god we know VB, otherwise this would be a pain from here on now. ;)
-Thankfully tho the autor has left some comments, indicating how the attack works.
+Thank god we know VB, otherwise this would be a pain from here on now. ;-) Thankfully, since the autor has left some comments, indicating how the attack works, we should be able to cope with it.
+
+The very first thing he does is effectively creating a backup of the AccessVBOM key **if** it has been set before.
 
 ```VB
 ' Get the old AccessVBOM value
@@ -82,15 +85,18 @@ else
 end if
 ```
 
-Then he 'weakens the target' by eabling a DWORD in the Path he found before.
+> "_Setting AccessVBOM to 1 allows to access the VBA Object Model_"
+
+Then he 'weakens the target' by setting the AccessVBOM to 1, thus enabling all acces to VBA Object Model.
 
 ```VB
 ' Weaken the target
 WshShell.RegWrite RegPath, 1, ""REG_DWORD""
 ```
 
-Then he gets to the juicy part, the macro is ran inside what seems to be an excel workbook.
-He proceeds to add some Assembly Code.
+Then he gets to the juicy part.
+To Exploit the Security setting he just turned off, he creates a new Excel Workboo, with macros of course.
+He then proceeds to add VBComponents to the Excel, allowing him to add an Assembly Code Module.
 
 ```VB
 ' Run the macro
@@ -100,7 +106,7 @@ xlmodule.CodeModule.AddFromString ... 80 more lines...
 
 ```
 
-Aparently this good boy restores the systems registry to its previous state in the last step.
+In his last step this good boy restores the systems registry to its previous state.
 
 ```VB
 ' Restore the registry to its old state
@@ -111,6 +117,8 @@ else
 end if
 self.close
 ```
+
+> xlmodule.CodeModule.AddFromString contains many obfuscated lines of assembly code, I deobfuscated it by printing it via VBS.
 
 Here is the actualy assembly code payload:
 
@@ -191,4 +199,8 @@ Sub Workbook_Open()
 End Sub
 ```
 
-honestly not trying to learn assembly or VB so fuck this.
+You can see the Variable myArray seems suspicous, when running the payload in Excel I get an error for 'myArray'
+
+Im stuck here at the moment... I was told i wouldnt need windows..
+
+@ me on twitter @0x0000005
