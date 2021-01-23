@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import os
-output = bytes.fromhex(open('output.txt', 'r').read().strip())
+output = bytes.fromhex(open('output.txt', 'r').read().strip()) 
 print('input: ', output)
 class XOR:
     def __init__(self):
