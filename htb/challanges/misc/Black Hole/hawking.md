@@ -1,6 +1,6 @@
 ---
-title: oBfsC4t10n
-description: A write up for the oBfsC4t10n[HARD] challenge
+title: Black Hole
+description: A write up for the Black Hole[EASY] challenge
 published: false
 datePublished: 1610805690979
 author: lwlx
@@ -18,9 +18,9 @@ bannerPhoto: /hackerone/hackerone.png
 canonicalUrl:
 ---
 
-# oBfsC4t10n _[HARD]_
+# Black Hole _[EASY]_
 
-This is my Write Up for the "oBfsC4t10n" challenge from Hack The Box.
+This is my Write Up for the "Black Hole" challenge from Hack The Box.
 
 we get a zip file. after extraction we are presented with an html file telling us to download an excel file.
 The excel file has been included in the html as a base64 encoded string, lets just save that info for later base64.txt.
