@@ -1,0 +1,18 @@
+Thanks to contributors, I removed the unique token as it was a security risk. Thanks for reporting responsibly!
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Author:    SherlockSec <dan@lights.htb>
+# Date:      Fri May 31 12:00:54 2019 +0100
+#
+# interactive rebase in progress; onto ddc606f
+# Last command done (1 command done):
+#    edit 3359900 Thanks to contributors, I removed the unique token as it was a security risk. Thanks for reporting responsibly!
+# Next command to do (1 remaining command):
+#    pick b67f71e Added some whitespace for readability!
+# You are currently splitting a commit while rebasing branch 'master' on 'ddc606f'.
+#
+# Changes to be committed:
+#	modified:   config.json
+#
