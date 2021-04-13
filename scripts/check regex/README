@@ -1,2 +1,4 @@
 Running the shell script build.sh on a unix/linux system will produce the scan.bin binary. The build.sh script
 depends on ocamlc, ocamllex and ocamlyacc programs.
+
+https://www.cs.bham.ac.uk/~hxt/research/rxxr2/
