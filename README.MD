@@ -7,8 +7,6 @@
 In this repository I document my jorney to becoming an Offensive Security Web Expert (OSWE). Furthermore I will publish an helpful tools or media I found as well as code I wrote during this time in this repository.
 
 ---
-
-<br/>
 <br/>
 
 ## Tools
