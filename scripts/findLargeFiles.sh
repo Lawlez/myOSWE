@@ -1,4 +1,4 @@
-# get to the root of your machine by running 
+# get to the root of your machine by running
 cd /
 
 # display files folders and sizes

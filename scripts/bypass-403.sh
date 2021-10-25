@@ -1,4 +1,4 @@
-curl http://lwlx.xyz  ## => 403
+curl http://lwlx.xyz ## => 403
 
 ## bypass 403 with xclient-ip
 curl https://lwlx.xyz -H "X-Client-IP: 127.0.0.1" ## => redirect to another page ?
