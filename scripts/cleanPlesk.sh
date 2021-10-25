@@ -1,4 +1,3 @@
-
 ## clean temp files older than 30 days
 find /tmp -type f -mtime +30 -exec rm {} \;
 find /var/tmp -type f -mtime +30 -exec rm {} \;
