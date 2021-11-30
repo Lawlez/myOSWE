@@ -108,7 +108,9 @@ if __name__ == "__main__":
 
 #openssl rsautl -decrypt -inkey key -in msg.enc -out flag.txt
 
-#openssl rsautl -decrypt -in $ENCRYPTED -out $PLAINTEXT -inkey keys/privkey.pem
+#openssl rsautl -decrypt -in msg -out out -inkey key.pem
+
+cat msg| base64 -d > msg3
 
 ENCRYPTED="624dbbcac0d425ed17134606c1589f937144b51d119ea82aab908737e0ba14c382d4b5432ce12d0d7edbbdead0e20bec57c05f53a3de4b9cf8de975d78a132ade517cd61c16bd1891e2630c0f333ba704f7bd0a6a2b4eb570ac12fb2ac9c8db8fcec8be2457c87a4608414f7af0ff1c0b10aa1553fce1af0f20d797ba7a7084b"
 
