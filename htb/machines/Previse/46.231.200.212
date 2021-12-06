@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///opt/homebrew/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.92 scan initiated Mon Nov 29 16:24:10 2021 as: nmap -sV -script vulners -oX 46.231.200.212 -&#45;top-ports 50 -->
+<nmaprun scanner="nmap" args="nmap -sV -script vulners -oX 46.231.200.212 -&#45;top-ports 50" start="1638199450" startstr="Mon Nov 29 16:24:10 2021" version="7.92" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="50" services="21-23,25-26,53,80-81,110-111,113,135,139,143,179,199,443,445,465,514-515,548,554,587,646,993,995,1025-1027,1433,1720,1723,2000-2001,3306,3389,5060,5666,5900,6001,8000,8008,8080,8443,8888,10000,32768,49152,49154"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<runstats><finished time="1638199450" timestr="Mon Nov 29 16:24:10 2021" summary="Nmap done at Mon Nov 29 16:24:10 2021; 0 IP addresses (0 hosts up) scanned in 0.11 seconds" elapsed="0.11" exit="success"/><hosts up="0" down="0" total="0"/>
+</runstats>
+</nmaprun>
