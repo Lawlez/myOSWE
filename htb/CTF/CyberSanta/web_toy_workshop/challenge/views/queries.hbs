@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Toy Workshop</title>
+        <link rel="icon" href="/static/images/logo.png" />
+        <link rel="stylesheet" type="text/css" href="/static/css/nes-core.min.css" />
+        <link rel="stylesheet" type="text/css" href="/static/css/dashboard.css" />
+    </head>
+    <body>
+        <img src="/static/images/cflower.png" class="main-logo" />
+        <p class="pb-3">Welcome back, admin!</p>
+        <div class="dash-frame">
+            {{#each queries}}
+            <p>{{{this.query}}}</p>
+            {{else}}
+            <p class="empty">No content</p>
+            {{/each}}
+        </div>
+    </body>
+    <script type="text/javascript" src="/static/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/static/js/auth.js"></script>
+</html>

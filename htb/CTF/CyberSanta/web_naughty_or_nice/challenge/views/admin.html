@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Naughty or Nice Portal</title>
+        <link rel="icon" href="/static/images/logo.png" />
+        <link rel="stylesheet" href="/static/vendors/mdi/css/materialdesignicons.min.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="/static/css/dashboard.css" />
+        <link rel="stylesheet" type="text/css" href="/static/css/main.css" />
+    </head>
+    <body>
+        <div class="mainwrapper">
+            <div class="container top-gap">
+                <div class="row" id="loading_view">
+                    <div class="col text-center mb-2">
+                        <img src="/static/images/cat.svg" alt="loading">
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-5 hidden" id="elfinfo_view">
+                <div class="row">
+                    <div class="col-md-12 stretch-card">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title text-muted">
+                                    <span class="mdi mdi-human-child"></span>Elf Listing
+                                </h5>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="hidden" id="empty-table-msg">
+                                    
+                                </div>
+                                <div class="table-responsive table-striped">
+                                    <table id="elf-listing" class="table text-center">
+                                        <thead>
+                                            <tr>
+                                                <th>Elf Name</th>
+                                                <th>Type</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                                <p id="resp-msg" class="alert alert-info mt-2 hidden">Please wait...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-5 hidden" id="editelf_view">
+                <div class="row">
+                    <div class="col-md-12 stretch-card">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title text-muted">
+                                    <span class="mdi mdi-human-child"></span>Edit Elf details
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <form id="editForm">
+                                    <div class="form-group">
+                                        <label for="elf_name" class="form-label fw-bold">Elf Name</label>
+                                        <input type="text" class="form-control" name="elf_name" placeholder="Enter elf name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="type" class="form-label fw-bold">Type</label>
+                                        <input type="text" class="form-control" name="type" placeholder="Enter nice or naughty">
+                                    </div>
+                                    <div class="form-group mt-3 mb-2">
+                                        <button type="button" id="update-edit-btn" class="btn btn-success w-25">Update</button>
+                                        <button type="button" id="cancel-edit-btn" class="btn btn-danger w-25">Cancel</button>
+                                    </div>
+                                    <input type="hidden" name="editelf_id">
+                                </form>
+                                <div class="form-group mt-3 mb-2">
+                                    <p id="edit-resp-msg" class="alert alert-info mt-3 hidden">Please wait...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img src="/static/images/cpost.png" id="cpost">
+        </div>
+        <script type="text/javascript" src="/static/js/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/static/js/admin.js"></script>
+        <script type="text/javascript" src="/static/js/snow.js"></script>
+    </body>
+</html>

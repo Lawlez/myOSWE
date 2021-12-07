@@ -1,0 +1,706 @@
+@import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas&display=swap');
+
+body {
+    background: #111;
+    background-size: 100%;
+    height: 100%;
+    width:100%;
+    overflow: scroll;
+    margin: 0;
+    min-width: 1300px !important;
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 28px;
+  }
+
+  /***************************
+  
+  The DIV for the SVG wall.  As I want the snow to show through the windows, I need to place this layer with a higher z-index then Miss Tiff's snow ---> https://codepen.io/tmrDevelops/pen/PPgjwz
+  
+  ***************************/
+  #Workshop_Back {
+    position: absolute;
+    width: 100%;
+    height: 779px;
+    margin: 0;
+    z-index: 200;
+    min-width: 1300px;
+  }
+
+  #Workshop_Animations {
+      
+        position: absolute;
+    width: 100%;
+    height: 712px;
+    margin: 0;
+    z-index: 3000;
+  }
+
+  
+  #Candy_Gears {position:absolute;width:100%;height:100%;margin:0;z-index:999999999999;}
+  /***************************
+  
+  Styles for the SVG Wall.  Created the wall in illustrator and then knocked out the window panes so the snow (and other festive surprises) would show through.   
+  
+  ***************************/
+  
+  #Workshop_Wall {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    z-index: 1000;
+  }
+  
+  .Workshop_Wall_0{fill:#c09277;}
+      .Workshop_Wall_1{fill:#8C5A3C;}
+      .Workshop_Wall_2{fill:#60462F;}
+      .Workshop_Wall_3{fill:#B96636;}
+      .Workshop_Wall_4{fill:#D3814D;}
+      .Workshop_Wall_5{fill:#B0581F;}
+      .Workshop_Wall_6{fill:#DE1516;}
+      .Workshop_Wall_7{fill:#F4F4F4;}
+      .Workshop_Wall_8{fill:#BD0302;}
+      .Workshop_Wall_9{fill:#C1652F;}
+      .Workshop_Wall_10{fill:#C66225;}
+      .Workshop_Wall_11{fill:#1F01FB;}
+      .Workshop_Wall_12{fill:#AD7964;}
+      .Workshop_Wall_13{fill:#9E99BC;}
+      .Workshop_Wall_14{fill:#8587AC;}
+      .Workshop_Wall_15{fill:#A58175;}
+  
+  /***************************
+  
+  Snow.  Positioned layer using a low z-index in the very back.
+  
+  ***************************/
+  
+  #tiffany_snow {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    pointer-events: none;
+  }
+
+  
+  #Front_Elves {position:absolute;width:100%;height:100%;margin:0;z-index:9000;}
+  
+  .elves_front0{fill:#815330;}
+      .elves_front1{fill:#654227;}
+      .elves_front2{fill:#F9FAF8;}
+      .elves_front3{fill:#757578;}
+      .elves_front4{fill:#6A8F27;}
+      .elves_front5{fill:#DA4937;}
+      .elves_front6{fill:#924493;}
+      .elves_front7{fill:#4BB882;}
+      .elves_front8{fill:#06AAE9;}
+      .elves_front9{fill:#FCDD03;}
+      .elves_front10{fill:#E91D25;}
+      .elves_front11{fill:#CB1A22;}
+      .elves_front12{fill:#5B5A5C;}
+      .elves_front13{fill:#3CB34B;}
+      .elves_front14{fill:#E4C184;}
+  
+      
+      
+      /***************************
+  
+  Santa Magic Machine 
+  
+  ***************************/
+  
+  #Toy-A-Matic {position:absolute;width:100%;height:621px;margin:0;z-index:6000}
+  #Santa_Factory {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      margin: 0 0 0 0;
+      overflow: hidden;
+      background-color: #815330;
+  
+  }
+  
+  .Santa_Magical_Toy_Machine {
+      position: absolute;
+      width: 100%;
+      margin-top: 0px;
+      height: 578px;
+      z-index: 2000;
+  }
+  .Santa_Magical_Toy_Machine:active .trash-in, .Santa_Magical_Toy_Machine:active .toy-out, .Santa_Magical_Toy_Machine:active .conveyor:before {
+      animation-play-state: paused;
+  }
+  .factory {
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 9000;
+  }
+  .converter {
+      width: 20vw;
+      min-width: 200px;
+      height: 100%;
+      animation: 3s magic_Border infinite;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+  
+  }
+  .converter .attention {
+      width: 18vw;
+      opacity: 0.5;
+      height: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 0;
+      animation: attention 10s infinite ease;
+  }
+  
+  /***************************
+  
+  Recycle Presents.  The CSS swap is triggered by the JS.  The background of the divs are just swapped out to create this incredible holiday illusion.
+  
+  ***************************/
+  
+  .ChristmasPresents {
+      display: none;
+  }
+  .ChristmasPresents.active {
+      display: block;
+  }
+  .ChristmasPresents:nth-child(1) .trash-in{
+      background-image: url(/static/images/bin2.png)
+  }
+  .ChristmasPresents:nth-child(1) .toy-out {
+      background-image: url(/static/images/trainset.png)
+  }
+  .ChristmasPresents:nth-child(2) .trash-in{
+  background-image: url(/static/images/bin2.png)
+  }
+  .ChristmasPresents:nth-child(2) .toy-out {
+      background-image: url(/static/images/bearset.png)
+  }
+  .ChristmasPresents:nth-child(3) .trash-in{
+      background-image: url(/static/images/bin2.png)
+  }
+  .ChristmasPresents:nth-child(3) .toy-out {
+      background-image: url(/static/images/gameset.png)
+  }
+  
+  .ChristmasPresents:nth-child(4) .trash-in{
+      background-image: url(/static/images/bin2.png)
+  }
+  .ChristmasPresents:nth-child(4) .toy-out {
+          background-image: url(/static/images/ballset.png)
+  }
+  .ChristmasPresents:nth-child(5) .trash-in{
+      background-image: url(/static/images/bin2.png)
+  }
+  .ChristmasPresents:nth-child(5) .toy-out {
+          background-image: url(/static/images/bearset.png)
+  }
+  
+  .ChristmasPresents .item {
+      margin-left: -20vw;
+      width: 200px;
+      max-width: 200px;
+      height: 50%;
+      max-height: 300px;
+      background-repeat: no-repeat;
+      background-position: bottom left;
+      background-size: contain;
+  }
+  .ChristmasPresents .trash-in{
+      position: absolute;
+      left: 0;
+      
+      bottom: 18px;
+      animation: input-slide 10s infinite linear;
+  }
+  .ChristmasPresents .toy-out {
+      position: absolute;
+      bottom: 18px;
+      animation: output-slide 10s infinite linear;
+  }
+  .conveyor {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 12px;
+      width: 100%;
+    min-width: 1300px;
+      background: #3e3e66;
+  }
+  .conveyor:before {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 100%;
+      right: 0;
+      width: 430vw;
+      background: repeating-linear-gradient(90deg, #3e3e66 0, #3e3e66 20px, transparent 20px, transparent 30px);
+      height: 6px;
+      animation: conveyor 10s infinite linear;
+  }
+   @keyframes input-slide {
+   0% {
+   visibility: visible;
+  }
+   50%, 100% {
+   visibility: hidden;
+  }
+   100% {
+   transform: translateX(130vw);
+  }
+  }
+  @keyframes output-slide {
+   0%, 49% {
+   visibility: hidden;
+  }
+   50% {
+   visibility: visible;
+  }
+   100% {
+   transform: translateX(130vw);
+  }
+  }
+  @keyframes conveyor {
+   100% {
+   transform: translateX(130vw);
+  }
+  }
+  @keyframes attention {
+   0%, 48%, 52%, 100% {
+   opacity: 0;
+  }
+   50% {
+   opacity: 1;
+   transform: scale(1.2);
+  }
+  }
+      
+      #Left_Cane {
+      transform: translateY(5px);
+      animation: leftcane 3s ease infinite;
+      animation-delay: 1.5s;
+  }
+  @keyframes rightcane {
+   50% {
+   transform: translateY(-30px);
+  }
+  }
+  #Right_Cane {
+      transform: translateY(10px);
+      animation: rightcane 3s ease infinite;
+  }
+  @keyframes leftcane {
+   50% {
+   transform: translateY(-20px);
+  }
+  }
+      .Candy_Cane_Magic {
+      position: absolute;
+      width:100%;
+      height:100%;
+      margin:0;
+  
+      overflow:hidden;
+      background:rgba(0,116,38,0.5);
+       animation: 3s Magic_Border infinite;
+      
+  }
+  .magic_stripe {
+      height: 100%;
+      width: 3%;
+      max-width:15px;
+      position: absolute;
+      -webkit-animation: toy_magic 4s infinite alternate;
+      animation: toy_magic 4s infinite alternate;
+  }
+   @-webkit-keyframes toy_magic {
+   100% {
+   top: 100%;
+  }
+  }
+   @keyframes toy_magic {
+   100% {
+   top: 100%;
+  }
+  }
+  .magic_stripe:nth-child(1) {
+      left: 41%;
+      background: rgba(255, 255, 255, 0.8);
+      top: -100%;
+      -webkit-animation-delay: 0.1s;
+      animation-delay: 0.1s;
+  }
+  .magic_stripe:nth-child(2) {
+      left: 23%;
+      background: rgba(254,0,4,0.8);
+      top: -100%;
+      -webkit-animation-delay: 0.2s;
+      animation-delay: 0.2s;
+  }
+  .magic_stripe:nth-child(3) {
+      left: 34%;
+      background: rgba(255, 255, 255, 0.8);
+      top: -100%;
+      -webkit-animation-delay: 0.3s;
+      animation-delay: 0.3s;
+  }
+  .magic_stripe:nth-child(4) {
+      left: 39%;
+      background: rgba(254,0,4,0.8);
+      top: -100%;
+      -webkit-animation-delay: 0.4s;
+      animation-delay: 0.4s;
+  }
+  .magic_stripe:nth-child(5) {
+      left: 51%;
+      background: rgba(255, 255, 255, 0.8);
+      top: -100%;
+      -webkit-animation-delay: 0.5s;
+      animation-delay: 0.5s;
+  }
+  .magic_stripe:nth-child(6) {
+      left: 42%;
+      background: rgba(254,0,4,0.8);
+      top: -100%;
+      -webkit-animation-delay: 0.6s;
+      animation-delay: 0.6s;
+  }
+  .magic_stripe:nth-child(7) {
+      left: 93%;
+      background: rgba(255, 255, 255, 0.8);
+      top: -100%;
+      -webkit-animation-delay: 0.7s;
+      animation-delay: 0.7s;
+  }
+  .magic_stripe:nth-child(8) {
+      left: 20%;
+      background: rgba(254,0,4,0.8);
+      top: -100%;
+      -webkit-animation-delay: 0.8s;
+      animation-delay: 0.8s;
+  }
+  .magic_stripe:nth-child(9) {
+      left: 23%;
+      background: rgba(255, 255, 255, 0.8);
+      top: -100%;
+      -webkit-animation-delay: 0.9s;
+      animation-delay: 0.9s;
+  }
+  .magic_stripe:nth-child(10) {
+      left: 50%;
+      background: rgba(254,0,4,0.8);
+      top: -100%;
+      -webkit-animation-delay: 1s;
+      animation-delay: 1s;
+  }
+  .magic_stripe:nth-child(11) {
+      left: 75%;
+      background: rgba(255, 255, 255, 0.8);
+      top: -100%;
+      -webkit-animation-delay: 1.1s;
+      animation-delay: 1.1s;
+  }
+  .magic_stripe:nth-child(12) {
+      left: 37%;
+      background: rgba(254,0,4,0.8);
+      top: -100%;
+      -webkit-animation-delay: 1.2s;
+      animation-delay: 1.2s;
+  }
+  .magic_stripe:nth-child(13) {
+      left: 40%;
+      background: rgba(255, 255, 255, 0.8);
+      top: -100%;
+      -webkit-animation-delay: 1.3s;
+      animation-delay: 1.3s;
+  }
+  .magic_stripe:nth-child(14) {
+      left: 90%;
+      background: rgba(254,0,4,0.8);
+      top: -100%;
+      -webkit-animation-delay: 1.4s;
+      animation-delay: 1.4s;
+  }
+  .magic_stripe:nth-child(15) {
+      left: 92%;
+      background: rgba(254,0,4,0.8);
+      top: -100%;
+      -webkit-animation-delay: 1.5s;
+      animation-delay: 1.5s;
+  }
+  .magic_stripe:nth-child(16) {
+      left: 80%;
+      background: rgba(255, 255, 255, 0.8);
+      top: -100%;
+      -webkit-animation-delay: 1.6s;
+      animation-delay: 1.6s;
+  }
+  .magic_stripe:nth-child(17) {
+      left: 5%;
+      background: rgba(254,0,4,0.8);
+      top: -100%;
+      -webkit-animation-delay: 1.7s;
+      animation-delay: 1.7s;
+  }
+  .magic_stripe:nth-child(18) {
+      left: 79%;
+      background: rgba(255, 255, 255, 0.8);
+      top: -100%;
+      -webkit-animation-delay: 1.8s;
+      animation-delay: 1.8s;
+  }
+  .magic_stripe:nth-child(19) {
+      left: 20%;
+      background: rgba(254,0,4,0.8);
+      top: -100%;
+      -webkit-animation-delay: 1.9s;
+      animation-delay: 1.9s;
+  }
+  .magic_stripe:nth-child(20) {
+      left: 11%;
+      background: rgba(255, 255, 255, 0.8);
+      top: -100%;
+      -webkit-animation-delay: 2s;
+      animation-delay: 2s;
+  }
+  .magic_stripe:nth-child(21) {
+      left: 14%;
+      background: rgba(254,0,4,0.8);
+      top: -100%;
+      -webkit-animation-delay: 2.1s;
+      animation-delay: 2.1s;
+  }
+  .magic_stripe:nth-child(22) {
+      left: 58%;
+      background: rgba(255, 255, 255, 0.8);
+      top: -100%;
+      -webkit-animation-delay: 2.2s;
+      animation-delay: 2.2s;
+  }
+  .magic_stripe:nth-child(23) {
+      left: 51%;
+      background: rgba(254,0,4,0.8);
+      top: -100%;
+      -webkit-animation-delay: 2.3s;
+      animation-delay: 2.3s;
+  }
+  .magic_stripe:nth-child(24) {
+      left: 27%;
+      background: rgba(254,0,4,0.8);
+      top: -100%;
+      -webkit-animation-delay: 2.4s;
+      animation-delay: 2.4s;
+  }
+  .magic_stripe:nth-child(25) {
+      left: 34%;
+      background: rgba(255, 255, 255, 0.8);
+      top: -100%;
+      -webkit-animation-delay: 2.5s;
+      animation-delay: 2.5s;
+  }
+  
+   .Candy_Cane_Machine {
+      -webkit-animation: 2s wobble infinite;
+       animation: 2s wobble infinite;
+    }
+  .magic_border {
+    width: 100%;
+    height: 100%;
+    animation: 3s Magic_Border infinite;
+    
+  }
+   @-webkit-keyframes Magic_Border {
+    0% {
+      outline: 10px dashed red;
+      box-shadow: 0 0 0 10px green;
+    }
+    50% {
+      outline: 10px dashed green;
+      box-shadow: 0 0 0 10px red;
+    }
+    100% {
+      outline: 10px dashed red;
+      box-shadow: 0 0 0 10px green;
+    }
+  }
+  @keyframes Magic_Border {
+    0% {
+      outline: 10px dashed red;
+      box-shadow: 0 0 0 10px green;
+    }
+    50% {
+      outline: 10px dashed green;
+      box-shadow: 0 0 0 10px red;
+    }
+    100% {
+      outline: 10px dashed red;
+      box-shadow: 0 0 0 10px green;
+    }
+  }
+  
+  #elf_small_stack {animation: whiz; }
+  
+  
+   @keyframes whiz {
+   0% {
+   left: 250%;
+  }
+   100% {
+   left: -250%;
+  }
+  }
+  @-webkit-keyframes whiz {
+   0% {
+   left: 250%;
+  }
+   100% {
+   left: -250%;
+  }
+  }
+  /* SVG Candy Cane Stripes CSS */
+  
+      .Red_Candy_Stripe{fill:#E11F26;}
+      .White_Candy Stripe {fill:#F6F6F0;}
+      
+  /* SVG Elfs with Presents Fills CSS */
+  
+  .Elves_with_Presents_0{fill:#EAB67D;}
+      .Elves_with_Presents_1{fill:#D18654;}
+      .Elves_with_Presents_2{fill:#F7C992;}
+      .Elves_with_Presents_3{fill:#303030;}
+      .Elves_with_Presents_4{fill:#FF9494;}
+      .Elves_with_Presents_5{fill:#B1C927;}
+      .Elves_with_Presents_6{fill:#A8B523;}
+      .Elves_with_Presents_7{fill:#DB2E2A;}
+      .Elves_with_Presents_8{fill:#56B3BF;}
+      .Elves_with_Presents_9{fill:#F9BD6E;}
+      .Elves_with_Presents_10{fill:#FFA6C6;}
+      .Elves_with_Presents_11{fill:#FF8DBB;}
+      .Elves_with_Presents_12{fill:#EA98B9;}
+      .Elves_with_Presents_13{fill:#FFBC6C;}
+      .Elves_with_Presents_14{fill:#FFD19F;}
+      .Elves_with_Presents_15{fill:#97DDC2;}
+      .Elves_with_Presents_16{fill:#EAA459;}
+      .Elves_with_Presents_17{fill:#7EC4A8;}
+      .Elves_with_Presents_18{fill:#C72E6F;}
+      .Elves_with_Presents_19{fill:#AD175F;}
+      .Elves_with_Presents_20{fill:#EA78B4;}
+      .Elves_with_Presents_21{fill:#991111;}
+      .Elves_with_Presents_22{fill:#FFE7CF;}
+      .Elves_with_Presents_23{fill:#AD1212;}
+      .Elves_with_Presents_24{fill:#C11F1F;}
+      .Elves_with_Presents_25{fill:#302E2E;}
+      .Elves_with_Presents_26{fill:#8BE2E8;}
+      .Elves_with_Presents_27{fill:#4DA6AD;}
+      .Elves_with_Presents_28{fill:#FFC91F;}
+      .Elves_with_Presents_29{fill:#EFB614;}
+      .Elves_with_Presents_30{fill:#8F76AD;}
+      .Elves_with_Presents_31{fill:#B8DB49;}
+      .Elves_with_Presents_32{fill:#AFC457;}
+      .Elves_with_Presents_33{fill:#A1BC2E;}
+      .Elves_with_Presents_34{fill:#A2BC35;}
+      .Elves_with_Presents_35{fill:#F991AC;}
+      .Elves_with_Presents_36{fill:#FFD2E0;}
+      .Elves_with_Presents_37{fill:#F9CDDB;}
+      .Elves_with_Presents_38{fill:#AA62B7;}
+      .Elves_with_Presents_39{fill:#FF648D;}
+      .Elves_with_Presents_40{fill:#C92323;}
+      .Elves_with_Presents_41{fill:#EDD1B7;}
+      .Elves_with_Presents_42{fill:#515050;}
+  
+  
+
+  /* ===================================================*
+      
+       ."".    ."",       
+       |  |   /  /
+       |  |  /  /
+       |  | /  /
+       |  |/  ;-._ 
+       }  ` _/  / ;
+       |  /` ) /  /             PEACE and LOVE
+       | /  /_/\_/\
+       |/  /      |           Mark in New Orleans
+       (  ' \ '-  |
+        \    `.  /
+         |      |
+         |      |
+  
+      
+      
+  /* ===================================================*/
+
+.login_frame {
+  position: absolute;
+  right: 140px;
+  top: 0px;
+  z-index: 9999;
+}
+
+.login_frame img {
+  position: absolute;
+  height: 120px;
+  top: 6px;
+  right: 0px;
+}
+
+#mainwrapper {
+  position: relative;
+  height: 730px;
+  width: 100%;
+}
+
+#padding {
+  position: absolute;
+  height: 40%;
+  width: 100%;
+  background-color: #c09277;
+  z-index: 199;
+  bottom: 0;
+}
+
+
+.sm-fw {
+  font-size: 20px;
+}
+
+#resp-msg {
+    margin: 0;
+    margin-top: 15px;
+    padding: 5px;
+    font-size: 20px;
+    display: none;
+}
+
+
+  @media (min-height: 800px) {
+    body{
+      overflow: hidden;
+    }
+}
+@media (max-height: 800px) {
+    #padding{
+      display:none;
+    }
+}
+@media (max-width: 800px) {
+    body{
+      overflow-x:scroll;
+    }
+  #padding{
+      display: block;
+      width: 1300px;
+    }
+}

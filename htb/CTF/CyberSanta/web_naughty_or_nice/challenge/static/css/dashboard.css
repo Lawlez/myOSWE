@@ -1,0 +1,17 @@
+.hidden {
+    display: none;
+}
+
+.active {
+    background-color : #3b526a;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.top-gap {
+    margin-top: 120px;
+}

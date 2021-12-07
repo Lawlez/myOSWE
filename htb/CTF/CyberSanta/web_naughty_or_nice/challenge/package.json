@@ -1,0 +1,22 @@
+{
+  "name": "naughty_or_nice",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "rayhan0x01",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon ."
+  },
+  "dependencies": {
+    "node-rsa": "^1.1.1",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "nunjucks": "^3.2.0",
+    "sqlite-async": "^1.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
