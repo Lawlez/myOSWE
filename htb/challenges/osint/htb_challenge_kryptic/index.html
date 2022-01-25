@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- HackTheBox OSINT Challenge 1
+
+Title: "Kryptic Malware"
+Category: OSINT
+Author: superhedgy
+
+Objective: Find the GPS coordinates of the suspect
+Hint: The flag is in the following format HTB{xxxxx}
+
+-->
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Sattelite Zeus - Human Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <span id=terminal>/* Welcome to 'Kryptic Malware' HackTheBox Challenge -*/</span>
+  <div id=caret></div>
+  <p id=terminal>Insert GPS Coordinates in Decimal Degree format below:</p>
+    <input focused alt="Example of GPS Coordinates" value="52.093545, 4.281649" id="i" size="24" style="color: #FFFFFF; font-family: Verdana; font-weight: bold; font-size: 15px; background-color: #000000;"></input>
+  <button type="button" onclick="ed(document.getElementById('i').value)" id="o" >Locate</button>
+</div>
+  <script src='js/jquery.min.js'></script>
+  <script src="js/aes.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script>
+  function ed(y){
+      z = "U2FsdGVkX1+JPGWHNFaL2jlyCS7Bim25Xqk+/YsmDg4kLWz2b3/UzylOmPLOuCHDF5gFwZOp0ICmIpPmTv0IXg==";
+      x = "null";
+
+      function rA(a, b, c)
+      {
+    		var y = a.split('');
+    		y[b]=c;
+    		return y.join('');
+      }
+      k = rA(y,8,"0");
+      l = rA(k,19,"0");
+
+      try {
+        CryptoJS.AES.decrypt(z,l).toString(CryptoJS.enc.Utf8);
+        x = CryptoJS.AES.decrypt(z,l).toString(CryptoJS.enc.Utf8);
+        (x.includes('HTB')) ? alert(x) : alert("None was found at that location...");
+      }
+      catch(err) {
+        alert("Sattelite is repositioning...");
+      }
+  }
+  </script>
+</body>
+</html>

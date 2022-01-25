@@ -1,0 +1,30 @@
+body {
+  font-family: courier new, monospace;
+  color: #0f8;
+  margin: 30px;
+  background: #111 radial-gradient(#000, #111) no-repeat center center;
+  font-size: 13px;
+  height: 100vh
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+#terminal {
+  white-space: pre-wrap;
+  line-height: 1.4;
+}
+
+#caret {
+  display: inline-block;
+  height: 1.35em;
+  width: 0.7em;
+  vertical-align: middle;
+  background-color: #fff;
+}
+
+.transparent {
+  opacity: 0;
+}
