@@ -1,0 +1,1 @@
+Open the rom in a GBA emulator of your choice. Select is to clear the input on the screen and start is to submit it, if the cheatcode is wrong, nothing will happen.
