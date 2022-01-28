@@ -1,0 +1,58 @@
+NOTE: This is an early version of c64tapedecode, so documentation is still sparse at this time.
+
+What is C64 Datasette tape utilities?
+=====================================
+
+C64 Datasette tape utilities is a set of tools for handling tape images and converting between WAV audio files and tape images.
+
+This project started out as a single program for decoding C64 files from an audio file recorded from tape through the soundcard (hence the name), however it has grown to include additional utilities for converting and accessing tape image files (TAP files).
+
+Building
+========
+
+To build all of the programs:
+
+  * cd to the src/ directory
+  * Run 'make'
+  * If 'make' was successful, run 'make install' as root
+
+The programs will be installed to /usr/local/bin/ by default (this can be changed in the Makefile).
+
+Using the tools
+===============
+
+The following programs are included:
+
+  * c64tapedecode: extract files from a TAP file in CBM ROM loader format
+  * wav2tap: convert WAV to TAP
+  * tap2wav: convert TAP to WAV
+  * tap2tap: convert TAP to TAP
+  * taphist: show histogram of pulse lengths in TAP file
+  * mktap: make a TAP file from text
+  * (planned) tapextract: replacement for c64tapedecode
+  * (planned) tapcreate: create TAP file from PRG/SEQ (.p00/.s00) files
+
+Here are some common ways to use these tools:
+
+  $ wav2tap tape.wav | c64tapedecode -T -v
+
+This will convert tape.wav into the TAP format and pipe that to c64tapedecode, which will then extract files from it (the -v option shows the decoding progress). The tape.wav file must be in WAV format with linear PCM encoding and either 1 or 2 channels. All sample rates are supported, but 16kHz or higher is recommended for the best results.
+
+  $ tap2wav tape.tap >tape.wav
+
+This will convert the TAP file tape.tap into the WAV file tape.wav, which can be recorded to a physical tape and used on a real C64 machine. Note: this has not been tested. You have been warned.
+
+  $ tap2tap -0 -r tape.tap >tape2.tap
+
+This will convert tape.tap into the version 0 TAP file tape2.tap, with repeating long pulses (-r option).
+
+  $ taphist tape.tap | less
+
+This will display a textual histogram of the pulse lengths in tape.tap (the output is somewhat long, so it's recommended to pipe it to 'more' or 'less').
+
+  $ mktap >mytape.tap
+  <user input here>
+
+This will create a TAP file from the pulse lengths provided on standard input. This allows one to easily create a TAP file from a shell script, for example.
+
+All programs (with the exception of taphist and mktap) can be invoked with the -h option to display a brief usage message.
