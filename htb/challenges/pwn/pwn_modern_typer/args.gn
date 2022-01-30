@@ -1,0 +1,4 @@
+is_debug = false
+is_component_build = false
+symbol_level = 1
+blink_symbol_level = 0
