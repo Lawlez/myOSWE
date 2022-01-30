@@ -73,3 +73,97 @@ STR : b"\x1b]\xc7\xe8\x15\x94\x81\xbf\x14\xe8\x9a\xe9z\xb8m\x82\x0f^?J<F\xbe\t\x
 
 
 python3 rsatool.py -n d30fafd76581e54505c695ed812338ad3a6350fd6857805d7480da34e4fd51ebb74ec9a8916dc1046c66a969b6522e8acc0b9c494a0436ffb47a9c9cce849b07a021585f001e545cbb78ae62f9faaae518b276269745b3ec7bb54c689c1721a4a1113698bcf814fd7be9747be509e07b57929850f9c4909d5f4e238b0e3b1757 -f PEM -d 308204960201000281e553da562055f79740a93718ee4d2c88a9507657c34b2a2e9ae17d487c5481defdffda94acd63fd9de4946dc16ba4232bc47ad4c0ebe68417b38c945331bfc36abfb6c9915492bc2a70dd4b2d30ff3b73fa5aaa90d6acc47b659c7b04a35e5b00263837c5dbfcf91fded9b9acac9e31b8989c7ce562edaf12ea0bf39a0134cb60b20ea208ae7da53371d7a0ee00123d7e76e9640e62e8639d994c3f847acbf50976be0b4e004acd88be6741debdeba333f28ee25e4f2bc5ed3bfff2dd37abbc5826d931d60cc32a55dec0ac8c3cb02bd871a6dad7a0935e91244f535155fcc5530b93e3e059b02030100010281e51b840ee8b0b37ce046407645e2f06894cd47550ee5a036bae5d39ebda0f71d04061fb26d24f458885a8027c24719685cb0556c1b17438212eeeddd08f07797d92e20066250f54cc92198bf35a024d7e862d9727ccfd6e29165a17ca990afbce6f22a6b76b80f638a719c7fc09bc25f7eedc5e4c7acbba892bfa9cd3d7bb16884fb267297558dc0b740802ebe363b280954e5762345c442dab1b8235f54f552ae774323e44bd7a5e468ffee580d033cf7680efddd2b36f513ea71d09643681dc650983df6e73e30ef42b4273d5898d268b181dc19aae27aba92698489d3d437cd1a161440f10281e510c5446cddfe5173550b04fc75d5b4eea9b144c0a8a209522d190e7f4419f965fff88422913ff85fa8415f37beda0a25a7ef759c8c7b404bd828410a38cc0aef3248eb6aa83bf3bb02c423c3cffd8b0cbabbbb69155c0e57ab8e56753dfabccd471a4c12bff65065fc5252288ec70581e85b29446fc5636fb9bfd853370f579bd36206822e5edd716c4b9c93336d9194afb7a6946fb471f850f3fe74bc2643517bf9bdc66755c4e8c7b0d2c8c6253d73082fa12dca25ac90bfffd5f7188bf44d491d6c468f3d5445fc022827289a25e7d215ef7ecea461d074310a9ddff5aaa3583fa6011f0201050281e50abeca7bd2b52b6cf13571496d1ab3a62396104e3cfe2d68b8ba903e5cdd239e06272e4a93b46028b23ec88a883f5e370865f67e8ac841c716c59bfeb7ab8ce9fbd71af7a8b9590e1ed49b71d0274cdba81db713ba7ad439ba13263452b50019ab101f63f8191324754a2d980cfb59fd056abb833cf6452305e9f4ea44a210e927c46c15272ee345d434922b02cd9674a52dcf8ed60fd0e260c424ea98cf0f5cfb49661de481e0fba14f1b8f46ddff845fdf5caf611148832a71fa9f2adc2979077ad1b05800dca946b1ff162ffeac80df6bec9adc3e18ea1e3879ebf3de8d29c1d66e3fd30201010281e50d6a9d23e4cb745c4408d0c9f7de2a5887c103cd53b4d441bdada5329ce1945199939ce874332d1953677f5fcbe1a1b7b98c5e16d6c9003caced00d4fa3cd58c283a55eeecfcc2fc023683030ccad5a3c8962f874449a512efa511f764c8970a9f483cdbccc50d1e63750e86d89f379b2048edd0596ab5f2faffe0429272ac7ca91b38682518b12789d616dc29247476f2f95210595d27f9da5ccb90968502a79661649eb9116a53d2f3dbd3d1b7645c068c80f16e848a0d666644c5ad3cc371074abd053f64436b3001b9b8ed481e530e77f2cbd883817390273bb17ff7bbb5e032eb3419
+
+
+
+
+KEy infos: 
+Private-Key: (1831 bit)
+modulus:
+    53:da:56:20:55:f7:97:40:a9:37:18:ee:4d:2c:88:
+    a9:50:76:57:c3:4b:2a:2e:9a:e1:7d:48:7c:54:81:
+    de:fd:ff:da:94:ac:d6:3f:d9:de:49:46:dc:16:ba:
+    42:32:bc:47:ad:4c:0e:be:68:41:7b:38:c9:45:33:
+    1b:fc:36:ab:fb:6c:99:15:49:2b:c2:a7:0d:d4:b2:
+    d3:0f:f3:b7:3f:a5:aa:a9:0d:6a:cc:47:b6:59:c7:
+    b0:4a:35:e5:b0:02:63:83:7c:5d:bf:cf:91:fd:ed:
+    9b:9a:ca:c9:e3:1b:89:89:c7:ce:56:2e:da:f1:2e:
+    a0:bf:39:a0:13:4c:b6:0b:20:ea:20:8a:e7:da:53:
+    37:1d:7a:0e:e0:01:23:d7:e7:6e:96:40:e6:2e:86:
+    39:d9:94:c3:f8:47:ac:bf:50:97:6b:e0:b4:e0:04:
+    ac:d8:8b:e6:74:1d:eb:de:ba:33:3f:28:ee:25:e4:
+    f2:bc:5e:d3:bf:ff:2d:d3:7a:bb:c5:82:6d:93:1d:
+    60:cc:32:a5:5d:ec:0a:c8:c3:cb:02:bd:87:1a:6d:
+    ad:7a:09:35:e9:12:44:f5:35:15:5f:cc:55:30:b9:
+    3e:3e:05:9b
+publicExponent: 65537 (0x10001)
+privateExponent:
+    1b:84:0e:e8:b0:b3:7c:e0:46:40:76:45:e2:f0:68:
+    94:cd:47:55:0e:e5:a0:36:ba:e5:d3:9e:bd:a0:f7:
+    1d:04:06:1f:b2:6d:24:f4:58:88:5a:80:27:c2:47:
+    19:68:5c:b0:55:6c:1b:17:43:82:12:ee:ed:dd:08:
+    f0:77:97:d9:2e:20:06:62:50:f5:4c:c9:21:98:bf:
+    35:a0:24:d7:e8:62:d9:72:7c:cf:d6:e2:91:65:a1:
+    7c:a9:90:af:bc:e6:f2:2a:6b:76:b8:0f:63:8a:71:
+    9c:7f:c0:9b:c2:5f:7e:ed:c5:e4:c7:ac:bb:a8:92:
+    bf:a9:cd:3d:7b:b1:68:84:fb:26:72:97:55:8d:c0:
+    b7:40:80:2e:be:36:3b:28:09:54:e5:76:23:45:c4:
+    42:da:b1:b8:23:5f:54:f5:52:ae:77:43:23:e4:4b:
+    d7:a5:e4:68:ff:ee:58:0d:03:3c:f7:68:0e:fd:dd:
+    2b:36:f5:13:ea:71:d0:96:43:68:1d:c6:50:98:3d:
+    f6:e7:3e:30:ef:42:b4:27:3d:58:98:d2:68:b1:81:
+    dc:19:aa:e2:7a:ba:92:69:84:89:d3:d4:37:cd:1a:
+    16:14:40:f1
+prime1:
+    10:c5:44:6c:dd:fe:51:73:55:0b:04:fc:75:d5:b4:
+    ee:a9:b1:44:c0:a8:a2:09:52:2d:19:0e:7f:44:19:
+    f9:65:ff:f8:84:22:91:3f:f8:5f:a8:41:5f:37:be:
+    da:0a:25:a7:ef:75:9c:8c:7b:40:4b:d8:28:41:0a:
+    38:cc:0a:ef:32:48:eb:6a:a8:3b:f3:bb:02:c4:23:
+    c3:cf:fd:8b:0c:ba:bb:bb:69:15:5c:0e:57:ab:8e:
+    56:75:3d:fa:bc:cd:47:1a:4c:12:bf:f6:50:65:fc:
+    52:52:28:8e:c7:05:81:e8:5b:29:44:6f:c5:63:6f:
+    b9:bf:d8:53:37:0f:57:9b:d3:62:06:82:2e:5e:dd:
+    71:6c:4b:9c:93:33:6d:91:94:af:b7:a6:94:6f:b4:
+    71:f8:50:f3:fe:74:bc:26:43:51:7b:f9:bd:c6:67:
+    55:c4:e8:c7:b0:d2:c8:c6:25:3d:73:08:2f:a1:2d:
+    ca:25:ac:90:bf:ff:d5:f7:18:8b:f4:4d:49:1d:6c:
+    46:8f:3d:54:45:fc:02:28:27:28:9a:25:e7:d2:15:
+    ef:7e:ce:a4:61:d0:74:31:0a:9d:df:f5:aa:a3:58:
+    3f:a6:01:1f
+prime2: 5 (0x5)
+exponent1:
+    0a:be:ca:7b:d2:b5:2b:6c:f1:35:71:49:6d:1a:b3:
+    a6:23:96:10:4e:3c:fe:2d:68:b8:ba:90:3e:5c:dd:
+    23:9e:06:27:2e:4a:93:b4:60:28:b2:3e:c8:8a:88:
+    3f:5e:37:08:65:f6:7e:8a:c8:41:c7:16:c5:9b:fe:
+    b7:ab:8c:e9:fb:d7:1a:f7:a8:b9:59:0e:1e:d4:9b:
+    71:d0:27:4c:db:a8:1d:b7:13:ba:7a:d4:39:ba:13:
+    26:34:52:b5:00:19:ab:10:1f:63:f8:19:13:24:75:
+    4a:2d:98:0c:fb:59:fd:05:6a:bb:83:3c:f6:45:23:
+    05:e9:f4:ea:44:a2:10:e9:27:c4:6c:15:27:2e:e3:
+    45:d4:34:92:2b:02:cd:96:74:a5:2d:cf:8e:d6:0f:
+    d0:e2:60:c4:24:ea:98:cf:0f:5c:fb:49:66:1d:e4:
+    81:e0:fb:a1:4f:1b:8f:46:dd:ff:84:5f:df:5c:af:
+    61:11:48:83:2a:71:fa:9f:2a:dc:29:79:07:7a:d1:
+    b0:58:00:dc:a9:46:b1:ff:16:2f:fe:ac:80:df:6b:
+    ec:9a:dc:3e:18:ea:1e:38:79:eb:f3:de:8d:29:c1:
+    d6:6e:3f:d3
+exponent2: 1 (0x1)
+coefficient:
+    0d:6a:9d:23:e4:cb:74:5c:44:08:d0:c9:f7:de:2a:
+    58:87:c1:03:cd:53:b4:d4:41:bd:ad:a5:32:9c:e1:
+    94:51:99:93:9c:e8:74:33:2d:19:53:67:7f:5f:cb:
+    e1:a1:b7:b9:8c:5e:16:d6:c9:00:3c:ac:ed:00:d4:
+    fa:3c:d5:8c:28:3a:55:ee:ec:fc:c2:fc:02:36:83:
+    03:0c:ca:d5:a3:c8:96:2f:87:44:49:a5:12:ef:a5:
+    11:f7:64:c8:97:0a:9f:48:3c:db:cc:c5:0d:1e:63:
+    75:0e:86:d8:9f:37:9b:20:48:ed:d0:59:6a:b5:f2:
+    fa:ff:e0:42:92:72:ac:7c:a9:1b:38:68:25:18:b1:
+    27:89:d6:16:dc:29:24:74:76:f2:f9:52:10:59:5d:
+    27:f9:da:5c:cb:90:96:85:02:a7:96:61:64:9e:b9:
+    11:6a:53:d2:f3:db:d3:d1:b7:64:5c:06:8c:80:f1:
+    6e:84:8a:0d:66:66:44:c5:ad:3c:c3:71:07:4a:bd:
+    05:3f:64:43:6b:30:01:b9:b8:ed:48:1e:53:0e:77:
+    f2:cb:d8:83:81:73:90:27:3b:b1:7f:f7:bb:b5:e0:
+    32:eb:34:19
