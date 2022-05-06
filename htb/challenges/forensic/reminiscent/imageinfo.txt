@@ -1,0 +1,14 @@
+          Suggested Profile(s) : Win7SP1x64, Win7SP0x64, Win2008R2SP0x64, Win2008R2SP1x64_23418, Win2008R2SP1x64, Win7SP1x64_23418
+                     AS Layer1 : WindowsAMD64PagedMemory (Kernel AS)
+                     AS Layer2 : VirtualBoxCoreDumpElf64 (Unnamed AS)
+                     AS Layer3 : FileAddressSpace (/home/infosec/dumps/mem_dumps/01/flounder-pc-memdump.elf)
+                      PAE type : No PAE
+                           DTB : 0x187000L
+                          KDBG : 0xf800027fe0a0L
+          Number of Processors : 2
+     Image Type (Service Pack) : 1
+                KPCR for CPU 0 : 0xfffff800027ffd00L
+                KPCR for CPU 1 : 0xfffff880009eb000L
+             KUSER_SHARED_DATA : 0xfffff78000000000L
+           Image date and time : 2017-10-04 18:07:30 UTC+0000
+     Image local date and time : 2017-10-04 11:07:30 -0700

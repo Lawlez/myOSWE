@@ -1,0 +1,42 @@
+Return-Path: <bloodworm@madlab.lcl>
+Delivered-To: madlab.lcl-flounder@madlab.lcl
+Received: (qmail 2609 invoked by uid 105); 3 Oct 2017 02:30:24 -0000
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="=_a8ebc8b42c157d88c1096632aeae0559"
+Date: Mon, 02 Oct 2017 22:30:24 -0400
+From: Brian Loodworm <bloodworm@madlab.lcl>
+To: flounder@madlab.lcl
+Subject: Resume
+Organization: HackTheBox
+Message-ID: <add77ed2ac38c3ab639246956c25b2c2@madlab.lcl>
+X-Sender: bloodworm@madlab.lcl
+Received: from mail.madlab.lcl (HELO mail.madlab.lcl) (127.0.0.1)
+ by mail.madlab.lcl (qpsmtpd/0.96) with ESMTPSA (ECDHE-RSA-AES256-GCM-SHA384 encrypted); Mon, 02 Oct 2017 22:30:24 -0400
+
+--=_a8ebc8b42c157d88c1096632aeae0559
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+
+Hi Frank, someone told me you would be great to review my resume..
+Could you have a look?
+
+resume.zip [1] 
+
+Links:
+------
+[1] http://10.10.99.55:8080/resume.zip
+--=_a8ebc8b42c157d88c1096632aeae0559
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3DUTF-8" /></head><body style=3D'font-size: 10pt; font-family: Verdana,Gen=
+eva,sans-serif'>
+<div class=3D"pre" style=3D"margin: 0; padding: 0; font-family: monospace">=
+<br /> Hi Frank, someone told me you would be great to review my resume.. c=
+uold you have a look?<br /> <br /><a href=3D"http://10.10.99.55:8080/resume=
+=2Ezip">resume.zip</a></div>
+</body></html>
+
+--=_a8ebc8b42c157d88c1096632aeae0559--
