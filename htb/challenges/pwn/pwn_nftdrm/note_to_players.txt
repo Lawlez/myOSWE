@@ -1,0 +1,29 @@
+Some notes for players:
+
+General:
+
+This is a hypervisor escape challenge, dealing with a custom PCI device called NFTDRM. You begin as the root user in a VM, and your goal is to breakout of the hypervisor to retrieve the flag.
+
+The aes and ecdh source files are not from me - they are public domain standalone implementations (https://github.com/kokke/tiny-AES-c, https://github.com/kokke/tiny-ECDH-c/blob/master/ecdh.h). The intended bug is not in there (if there are any bugs in there). The only modications I've made in those source files (aside from configuring the DEFINE headers to force a specific mode of encryption) are pragma statements to force GCC optimization to stay at O0 (optimization level is not related to the bug either). I encourage you to use those same implementations to perform the same crypto level communications with the device.
+
+Debugging:
+
+The provided QEMU binary has symbols in it. Please debug in similar docker environments!!! 
+
+Feel free to modify the provided initramfs.cpio.gz file as you wish to make debugging easier. By default, it just launches a netcat bindshell for you to connect to it like on remote, but I would recommend just having it open a shell for you and prepackaging in your exploit binaries for debugging's sake - this shouldn't affect exploit stability too much.
+
+Exploit Building:
+
+The kernel is a standard Debian release kernel (5.10.0-13). Headers can be unpacked from the .deb files in headers/. There are many good resources online (including CTF challenges) that can show you how to communicate with a PCI device from the Linux kernel.
+
+Technically, you don't exactly need a driver to communicate with the pci device. Since you are the root user, you can just access the resource file for the pci device (use lspci to help you). Use /dev/mem, /proc/iomem, and /proc/self/pagemap to help you here. More CTF challenge writeups actually discuss hypervisor escape exploit communication using this technique.
+
+Exploitation:
+
+No, there is no gLibc heap note magic to solve this challenge. I built QEMU specifically with glibc 2.34 to discourage you from taking such an approach, although I'm not even sure how feasible it is on a nicer libc version. QEMU has a lot of features, and my provided code also allows for many exploit possibilities, so there could be many ways to solve this! 
+
+One piece of advice I would give is to build strong primitives, especially in a finnicky environment like QEMU where even hardware spec differences can result in differences.
+
+Flag:
+
+There are no guarantees what the flag name or flag file type on remote is. It could be a normal .txt file, a gzip compressed file, a suid flag reader, or even an image. Get RCE :^)
