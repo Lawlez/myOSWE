@@ -11,7 +11,7 @@ In this repository I document my jorney to becoming an Offensive Security Web Ex
 
 ## Tools
 
-- [x] ([CyberChef](https://gchq.github.io/CyberChef/)) a web app for encryption, encoding, compression and data analysis
+- [x] ([CyberChef](https://cyberchef.cybertap.ch)) a web app for encryption, encoding, compression and data analysis
 - [x] ([JSNICE](http://jsnice.org/)) a JavaScript Deobfuscation tool
 - [x] ([boxentriq/code-breaking](https://www.boxentriq.com/code-breaking)) various codebreaking and cipher tools
 
