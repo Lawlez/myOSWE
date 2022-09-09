@@ -1,0 +1,102 @@
+{
+  "main": {
+    "id": "4d69da856f629025",
+    "type": "split",
+    "children": [
+      {
+        "id": "47c3c3a9e8969025",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Inlanefreight Penetration Test/Evidence/Findings/L1 - Directory Listing Enabled.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "cbbc39e05a2394a6",
+    "type": "split",
+    "children": [
+      {
+        "id": "7cf8d18646d3a7e2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "33948ddbbdb167b5",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "37fe3a149df32a26",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 416
+  },
+  "right": {
+    "id": "48faafe8d5d11623",
+    "type": "split",
+    "children": [
+      {
+        "id": "41fe4bea256ed92d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6990443c3a58c22c",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Inlanefreight Penetration Test/Evidence/Findings/L1 - Directory Listing Enabled.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "47c3c3a9e8969025",
+  "lastOpenFiles": [
+    "Inlanefreight Penetration Test/Evidence/Findings/L1 - Directory Listing Enabled.md",
+    "Inlanefreight Penetration Test/Evidence/Findings/H10 - Command Injection.md",
+    "Inlanefreight Penetration Test/Evidence/Findings/H9 - Local File Inclusion.md",
+    "Inlanefreight Penetration Test/Evidence/Findings/H8 - Weak AD Passwords (Pass Spraying).md",
+    "Inlanefreight Penetration Test/Evidence/Findings/H7 - IPMI Hash Disclosure.md",
+    "Inlanefreight Penetration Test/Evidence/Findings/H6 - Password in Description Field.md",
+    "Inlanefreight Penetration Test/Evidence/Findings/H6 - MS17-010 (EternalBlue).md",
+    "Inlanefreight Penetration Test/Evidence/Findings/H10 - Weak&Default Credentials.md",
+    "Inlanefreight Penetration Test/Evidence/Findings/H4. Tomcat Manager Weak Credentials.md",
+    "Inlanefreight Penetration Test/Evidence/Findings/H3 - LLMNR&NBT-NS Response Spoofing.md"
+  ]
+}
