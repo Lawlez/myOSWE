@@ -1,0 +1,22 @@
+{
+	"name": "blinker-fluids",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "node index.js"
+	},
+	"keywords": [],
+	"author": "rayhan0x01",
+	"license": "ISC",
+	"dependencies": {
+		"express": "4.17.3",
+		"md-to-pdf": "4.1.0",
+		"nunjucks": "3.2.3",
+		"sqlite-async": "1.1.3",
+		"uuid": "8.3.2"
+	},
+	"devDependencies": {
+		"nodemon": "^1.19.1"
+	}
+}

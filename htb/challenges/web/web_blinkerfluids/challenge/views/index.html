@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Blinker Fluids™</title>
+    <link rel="icon" href="/static/images/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/easymde.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid m-3">
+        <h1>Blinker Fluids™</h1>
+      </div>
+    </nav>
+
+    <div class="container mt-5 mb-5" id="invoices_view">
+      <div class="card border-primary sm-3">
+        <h4 class="card-header">Invoice List</h4>
+        <div class="card-body">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Invoice ID</th>
+                <th scope="col">Issued at</th>
+                <th scope="col">Export</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody class="table-primary" id="invoice-list">
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer">
+          <div class="row mb-3">
+            <div class="col text-center">
+              <button class="btn btn-secondary" id="create-btn">Create New Invoice</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col text-center">
+              <p class="mb-3 pdf_frame"><a class="glitch-font" href="#" id="pdf_view" target="_blank">Download Exported PDF</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="markdown_view">
+      <div class="card border-primary sm-3">
+        <h4 class="card-header">Create Invoice</h4>
+        <div class="card-body" id="titleSr">
+          <textarea class="form-control" id="markdown_content" placeholder="Note"># Blinker Fluids™ Corp
+
+---------------------------------------
+
+    Invoice: 20220115
+    Company: BlinkerFluidsCorp.htb
+    Contact: HR <hr@BlinkerFluidsCorp.htb>
+
+    Customer: Golden Faang CP 23
+    IE-Mail: gfaang23@gfang.htb
+    Phone: +999050-341-1301
+
+### Summary
+
+Products Description                 | Qty    | Cost  | Sub Total
+-------------------------------- | ------ | --------- | ---------
+Blinker Fluids                           | 1000      | 𐆖 9000.10    | 𐆖 9000100.00
+
+*Sub Total*: 𐆖 9000100.00 / **Grand Total**: 𐆖 9000100.00 (No Tax)
+
+### Terms
+
++ Payments are to be made payable to [BlinkerFluidsCorp] via InterGalactic Direct Deposit[^1].
++ Grand Total must be paid by the end of [2022-05-16] (30 days).
++ If Grand Total is not paid by the end of [2022-05-16], a late-fee[^2] will be applied to the Grand Total.
+
+### Payments
+
+Date       | Method     | Amount
+---------- | ---------- | ------
+2022-05-16 | IDD     | 𐆖 9000100.00
+
+
+[^1]: InterGalactic Direct Diposit IE-Mail  <receivable@BlinkerFluidsCorp.htb>.
+
+[^2]: Late-fee of *2%* interest per-day until paid.
+        
+        </textarea>
+        </div>
+        <div class="card-footer">
+          <div class="row mb-3">
+            <div class="col text-center">
+              <button class="btn btn-primary" id="save-btn">Save</button>
+              <p class="alert alert-primary" style="margin-top:10px" id="resp-msg"> Oh snap! try submitting again. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" id="loading_view">
+      <div class="col text-center mb-2">
+        <div class="loader">
+          <div class="part">
+            <div class="part">
+              <div class="part">
+                <div class="part">
+                  <div class="part"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="height:20px"></div>
+    <script type="text/javascript" src="/static/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/static/js/easymde.min.js"></script>
+    <script type="text/javascript" src="/static/js/main.js"></script>
+  </body>
+</html>
