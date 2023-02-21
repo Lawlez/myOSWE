@@ -19,13 +19,13 @@ min_length = 1
 max_length = 20
 
 # Define the number of requests to send
-num_requests = 1000
+num_requests = 400
 
 # Define the filter function to use
 def filter_response(response):
     # Here you can define any logic to filter the response.
     # This example simply filters out responses with a 404 status code.
-    return response.status_code != 404
+    return response.status_code != 200
 
 # Define the worker function to send requests and filter responses
 def worker():
@@ -43,7 +43,7 @@ def worker():
         if filter_response(response):
             # Save the filtered response to a file
             with open('filtered_responses.txt', 'a') as f:
-                f.write(f'{full_url}\n{response.text}\n\n')
+                f.write(f'{full_url}\n{response.headers}\n{response.content}\n')
 
         # Check if we've sent enough requests
         with lock:
@@ -53,7 +53,7 @@ def worker():
                 break
 
 # Create the threads and start them
-num_threads = 300
+num_threads = 200
 requests_sent = 0
 lock = threading.Lock()
 threads = []
