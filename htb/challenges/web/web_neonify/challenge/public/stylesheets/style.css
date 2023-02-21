@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+  background-color: black;
+  color: white;
+  background-image: url(/images/gem.gif), url(/images/gem.gif), url(/images/gem.gif),  url(/images/gem.gif);
+  background-position: top left, top right, bottom left, bottom right;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+}
+
+
+.wrapper {
+  width: 50%;
+  height:100%;
+  margin-top: 10%;
+  text-align: center;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.wrapper input[type=submit] {
+  background-color: #d01716;
+  border: none;
+  color: white;
+  height: 40px;
+  width: 130px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.wrapper input[type=text] {
+  border: none;
+  height: 35px;
+  width: 454px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 18px;
+}
+
+.title {
+  color: white;
+  font-size: 30px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  top: 0%;
+  text-align: center;
+  margin-top: 10%;
+}
+
+.glow {
+  font-size: 30px;
+  padding-top: 20px;
+  color: #FFF;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e84e40, 0 0 40px #e84e40, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}

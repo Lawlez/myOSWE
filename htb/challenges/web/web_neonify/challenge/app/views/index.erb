@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Neonify</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="icon" type="image/gif" href="/images/gem.gif">
+</head>
+<body>
+    <div class="wrapper">
+        <h1 class="title">Amazing Neonify Generator</h1>
+        <form action="/" method="post">
+            <p>Enter Text to Neonify</p><br>
+            <input type="text" name="neon" value="">
+            <input type="submit" value="Submit">
+        </form>
+        <h1 class="glow"><%= @neon %></h1>
+    </div>
+</body>
+</html>
