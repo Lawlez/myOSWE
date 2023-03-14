@@ -1,0 +1,238 @@
+Nmap scan report for rc23l0103.dnh.net (185.46.59.31)
+Host is up (0.016s latency).
+Not shown: 983 closed tcp ports (reset)
+PORT     STATE    SERVICE       VERSION
+21/tcp   open     ftp           ProFTPD
+| ssl-cert: Subject: commonName=rc23l0103.dnh.net
+| Subject Alternative Name: DNS:rc23l0103.dnh.net
+| Not valid before: 2023-03-07T15:05:15
+|_Not valid after:  2023-06-05T15:05:14
+| tls-nextprotoneg: 
+|_  ftp
+| tls-alpn: 
+|_  ftp
+|_ssl-date: TLS randomness does not represent time
+22/tcp   open     ssh           OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)
+| ssh-hostkey: 
+|   3072 6f0508af8c7945de017d730140afd7d4 (RSA)
+|   256 2df8aa46506e311e1b2d4eb28f403d28 (ECDSA)
+|_  256 704751abfa79edfec36d590887e1af0a (ED25519)
+25/tcp   open     smtp          Postfix smtpd
+| ssl-cert: Subject: commonName=rc23l0103.dnh.net
+| Subject Alternative Name: DNS:rc23l0103.dnh.net
+| Not valid before: 2023-03-07T15:05:15
+|_Not valid after:  2023-06-05T15:05:14
+|_smtp-commands: rc23l0103.dnh.net, PIPELINING, SIZE 10240000, ETRN, STARTTLS, AUTH DIGEST-MD5 CRAM-MD5 PLAIN LOGIN, ENHANCEDSTATUSCODES, 8BITMIME, DSN, CHUNKING
+|_ssl-date: TLS randomness does not represent time
+53/tcp   open     domain        (unknown banner: none)
+| fingerprint-strings: 
+|   DNSVersionBindReqTCP: 
+|     version
+|     bind
+|_    none
+| dns-nsid: 
+|_  bind.version: none
+80/tcp   open     http          nginx
+|_http-title: Web Server's Default Page
+106/tcp  open     tcpwrapped
+110/tcp  open     pop3          Dovecot pop3d
+|_pop3-capabilities: CAPA STLS UIDL TOP USER SASL(PLAIN LOGIN DIGEST-MD5 CRAM-MD5) RESP-CODES PIPELINING AUTH-RESP-CODE APOP
+| ssl-cert: Subject: commonName=rc23l0103.dnh.net
+| Subject Alternative Name: DNS:rc23l0103.dnh.net
+| Not valid before: 2023-03-07T15:05:15
+|_Not valid after:  2023-06-05T15:05:14
+|_ssl-date: TLS randomness does not represent time
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+143/tcp  open     imap          Dovecot imapd
+|_imap-capabilities: AUTH=DIGEST-MD5 IDLE post-login STARTTLS listed AUTH=PLAIN LITERAL+ SASL-IR capabilities IMAP4rev1 LOGIN-REFERRALS AUTH=LOGIN more have ENABLE OK ID Pre-login AUTH=CRAM-MD5A0001
+| ssl-cert: Subject: commonName=rc23l0103.dnh.net
+| Subject Alternative Name: DNS:rc23l0103.dnh.net
+| Not valid before: 2023-03-07T15:05:15
+|_Not valid after:  2023-06-05T15:05:14
+|_ssl-date: TLS randomness does not represent time
+443/tcp  open     ssl/http      nginx
+|_ssl-date: TLS randomness does not represent time
+| http-robots.txt: 1 disallowed entry 
+|_/
+| tls-alpn: 
+|   h2
+|_  http/1.1
+| ssl-cert: Subject: commonName=rc23l0103.dnh.net
+| Subject Alternative Name: DNS:rc23l0103.dnh.net
+| Not valid before: 2023-03-07T15:05:15
+|_Not valid after:  2023-06-05T15:05:14
+|_http-favicon: Plesk Obsidian
+| http-title: Plesk Obsidian 18.0.50
+|_Requested resource was https://rc23l0103.dnh.net/login_up.php
+| tls-nextprotoneg: 
+|   h2
+|_  http/1.1
+445/tcp  filtered microsoft-ds
+465/tcp  open     ssl/smtp      Postfix smtpd
+|_smtp-commands: rc23l0103.dnh.net, PIPELINING, SIZE 10240000, ETRN, AUTH DIGEST-MD5 CRAM-MD5 PLAIN LOGIN, ENHANCEDSTATUSCODES, 8BITMIME, DSN, CHUNKING
+|_ssl-date: TLS randomness does not represent time
+| ssl-cert: Subject: commonName=rc23l0103.dnh.net
+| Subject Alternative Name: DNS:rc23l0103.dnh.net
+| Not valid before: 2023-03-07T15:05:15
+|_Not valid after:  2023-06-05T15:05:14
+587/tcp  open     smtp          Postfix smtpd
+|_smtp-commands: rc23l0103.dnh.net, PIPELINING, SIZE 10240000, ETRN, STARTTLS, ENHANCEDSTATUSCODES, 8BITMIME, DSN, CHUNKING
+| ssl-cert: Subject: commonName=rc23l0103.dnh.net
+| Subject Alternative Name: DNS:rc23l0103.dnh.net
+| Not valid before: 2023-03-07T15:05:15
+|_Not valid after:  2023-06-05T15:05:14
+|_ssl-date: TLS randomness does not represent time
+993/tcp  open     ssl/imap      Dovecot imapd
+|_imap-capabilities: AUTH=DIGEST-MD5 IDLE post-login ID listed AUTH=CRAM-MD5A0001 LITERAL+ SASL-IR capabilities IMAP4rev1 LOGIN-REFERRALS AUTH=LOGIN more ENABLE have Pre-login OK AUTH=PLAIN
+| ssl-cert: Subject: commonName=rc23l0103.dnh.net
+| Subject Alternative Name: DNS:rc23l0103.dnh.net
+| Not valid before: 2023-03-07T15:05:15
+|_Not valid after:  2023-06-05T15:05:14
+|_ssl-date: TLS randomness does not represent time
+995/tcp  open     ssl/pop3      Dovecot pop3d
+|_pop3-capabilities: CAPA UIDL TOP USER SASL(PLAIN LOGIN DIGEST-MD5 CRAM-MD5) AUTH-RESP-CODE PIPELINING RESP-CODES APOP
+|_ssl-date: TLS randomness does not represent time
+| ssl-cert: Subject: commonName=rc23l0103.dnh.net
+| Subject Alternative Name: DNS:rc23l0103.dnh.net
+| Not valid before: 2023-03-07T15:05:15
+|_Not valid after:  2023-06-05T15:05:14
+8443/tcp open     ssl/https-alt sw-cp-server
+| fingerprint-strings: 
+|   FourOhFourRequest: 
+|     HTTP/1.1 404 Not Found
+|     Server: sw-cp-server
+|     Date: Tue, 14 Mar 2023 11:25:23 GMT
+|     Content-Type: text/html
+|     Content-Length: 906
+|     Connection: close
+|     ETag: "63ea2c79-38a"
+|     <!DOCTYPE html>
+|     <!-- Copyright 1999-2023. Plesk International GmbH. All rights reserved. -->
+|     <html lang="en" dir="ltr">
+|     <head>
+|     <meta charset="utf-8">
+|     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+|     <title>404 Page Not Found</title>
+|     <link rel="shortcut icon" href="/favicon.ico">
+|     <link rel="stylesheet" href="/ui-library/plesk-ui-library.css?3.31.0">
+|     <script src="/ui-library/plesk-ui-library.min.js?3.31.0"></script>
+|     <script src="/cp/javascript/vendors.js"></script>
+|     <script src="/cp/javascript/main.js"></script>
+|     <script src="/error_docs/uat.js?v3"></script>
+|     <link href="/error_docs/app.css?5ddcce66fe3b3bc08d68" rel="stylesheet"></head>
+|     <body>
+|     <div id
+|   GetRequest: 
+|     HTTP/1.1 303 See Other
+|     Server: sw-cp-server
+|     Date: Tue, 14 Mar 2023 11:25:23 GMT
+|     Content-Type: text/html; charset=UTF-8
+|     Connection: close
+|     Expires: Fri, 28 May 1999 00:00:00 GMT
+|     Last-Modified: Tue, 14 Mar 2023 11:25:23 GMT
+|     Cache-Control: no-store, no-cache, must-revalidate
+|     Cache-Control: post-check=0, pre-check=0
+|     Pragma: no-cache
+|     P3P: CP="NON COR CURa ADMa OUR NOR UNI COM NAV STA"
+|     X-Frame-Options: SAMEORIGIN
+|     X-XSS-Protection: 1; mode=block
+|     Location: https://localhost:8443/login.php
+|   HTTPOptions: 
+|     HTTP/1.1 405 Not Allowed
+|     Server: sw-cp-server
+|     Date: Tue, 14 Mar 2023 11:25:23 GMT
+|     Content-Type: text/html
+|     Content-Length: 914
+|     Connection: close
+|     ETag: "63ea2c79-392"
+|     <!DOCTYPE html>
+|     <!-- Copyright 1999-2023. Plesk International GmbH. All rights reserved. -->
+|     <html lang="en" dir="ltr">
+|     <head>
+|     <meta charset="utf-8">
+|     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+|     <title>405 Method Not Allowed</title>
+|     <link rel="shortcut icon" href="/favicon.ico">
+|     <link rel="stylesheet" href="/ui-library/plesk-ui-library.css?3.31.0">
+|     <script src="/ui-library/plesk-ui-library.min.js?3.31.0"></script>
+|     <script src="/cp/javascript/vendors.js"></script>
+|     <script src="/cp/javascript/main.js"></script>
+|     <script src="/error_docs/uat.js?v3"></script>
+|     <link href="/error_docs/app.css?5ddcce66fe3b3bc08d68" rel="stylesheet"></head>
+|_    <body>
+| http-robots.txt: 1 disallowed entry 
+|_/
+| http-title: Plesk Obsidian 18.0.50
+|_Requested resource was https://rc23l0103.dnh.net:8443/login_up.php
+| tls-alpn: 
+|_  http/1.1
+| ssl-cert: Subject: commonName=rc23l0103.dnh.net
+| Subject Alternative Name: DNS:rc23l0103.dnh.net
+| Not valid before: 2023-03-07T15:05:15
+|_Not valid after:  2023-06-05T15:05:14
+|_ssl-date: TLS randomness does not represent time
+|_http-favicon: Plesk Obsidian
+| tls-nextprotoneg: 
+|_  http/1.1
+|_http-server-header: sw-cp-server
+2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port53-TCP:V=7.93%I=7%D=3/14%Time=641059A2%P=arm-apple-darwin21.6.0%r(D
+SF:NSVersionBindReqTCP,31,"\0/\0\x06\x85\0\0\x01\0\x01\0\0\0\0\x07version\
+SF:x04bind\0\0\x10\0\x03\xc0\x0c\0\x10\0\x03\0\0\0\0\0\x05\x04none");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port8443-TCP:V=7.93%T=SSL%I=7%D=3/14%Time=641059A3%P=arm-apple-darwin21
+SF:.6.0%r(GetRequest,1F5,"HTTP/1\.1\x20303\x20See\x20Other\r\nServer:\x20s
+SF:w-cp-server\r\nDate:\x20Tue,\x2014\x20Mar\x202023\x2011:25:23\x20GMT\r\
+SF:nContent-Type:\x20text/html;\x20charset=UTF-8\r\nConnection:\x20close\r
+SF:\nExpires:\x20Fri,\x2028\x20May\x201999\x2000:00:00\x20GMT\r\nLast-Modi
+SF:fied:\x20Tue,\x2014\x20Mar\x202023\x2011:25:23\x20GMT\r\nCache-Control:
+SF:\x20no-store,\x20no-cache,\x20must-revalidate\r\nCache-Control:\x20post
+SF:-check=0,\x20pre-check=0\r\nPragma:\x20no-cache\r\nP3P:\x20CP=\"NON\x20
+SF:COR\x20CURa\x20ADMa\x20OUR\x20NOR\x20UNI\x20COM\x20NAV\x20STA\"\r\nX-Fr
+SF:ame-Options:\x20SAMEORIGIN\r\nX-XSS-Protection:\x201;\x20mode=block\r\n
+SF:Location:\x20https://localhost:8443/login\.php\r\n\r\n")%r(HTTPOptions,
+SF:440,"HTTP/1\.1\x20405\x20Not\x20Allowed\r\nServer:\x20sw-cp-server\r\nD
+SF:ate:\x20Tue,\x2014\x20Mar\x202023\x2011:25:23\x20GMT\r\nContent-Type:\x
+SF:20text/html\r\nContent-Length:\x20914\r\nConnection:\x20close\r\nETag:\
+SF:x20\"63ea2c79-392\"\r\n\r\n<!DOCTYPE\x20html>\n<!--\x20Copyright\x20199
+SF:9-2023\.\x20Plesk\x20International\x20GmbH\.\x20All\x20rights\x20reserv
+SF:ed\.\x20-->\n<html\x20lang=\"en\"\x20dir=\"ltr\">\n<head>\n\x20\x20\x20
+SF:\x20<meta\x20charset=\"utf-8\">\n\x20\x20\x20\x20<meta\x20name=\"viewpo
+SF:rt\"\x20content=\"width=device-width,\x20initial-scale=1,\x20shrink-to-
+SF:fit=no\">\n\x20\x20\x20\x20<title>405\x20Method\x20Not\x20Allowed</titl
+SF:e>\n\x20\x20\x20\x20<link\x20rel=\"shortcut\x20icon\"\x20href=\"/favico
+SF:n\.ico\">\n\x20\x20\x20\x20<link\x20rel=\"stylesheet\"\x20href=\"/ui-li
+SF:brary/plesk-ui-library\.css\?3\.31\.0\">\n\x20\x20\x20\x20<script\x20sr
+SF:c=\"/ui-library/plesk-ui-library\.min\.js\?3\.31\.0\"></script>\n\x20\x
+SF:20\x20\x20<script\x20src=\"/cp/javascript/vendors\.js\"></script>\n\x20
+SF:\x20\x20\x20<script\x20src=\"/cp/javascript/main\.js\"></script>\n\x20\
+SF:x20\x20\x20<script\x20src=\"/error_docs/uat\.js\?v3\"></script>\n<link\
+SF:x20href=\"/error_docs/app\.css\?5ddcce66fe3b3bc08d68\"\x20rel=\"stylesh
+SF:eet\"></head>\n<body>\n<")%r(FourOhFourRequest,436,"HTTP/1\.1\x20404\x2
+SF:0Not\x20Found\r\nServer:\x20sw-cp-server\r\nDate:\x20Tue,\x2014\x20Mar\
+SF:x202023\x2011:25:23\x20GMT\r\nContent-Type:\x20text/html\r\nContent-Len
+SF:gth:\x20906\r\nConnection:\x20close\r\nETag:\x20\"63ea2c79-38a\"\r\n\r\
+SF:n<!DOCTYPE\x20html>\n<!--\x20Copyright\x201999-2023\.\x20Plesk\x20Inter
+SF:national\x20GmbH\.\x20All\x20rights\x20reserved\.\x20-->\n<html\x20lang
+SF:=\"en\"\x20dir=\"ltr\">\n<head>\n\x20\x20\x20\x20<meta\x20charset=\"utf
+SF:-8\">\n\x20\x20\x20\x20<meta\x20name=\"viewport\"\x20content=\"width=de
+SF:vice-width,\x20initial-scale=1,\x20shrink-to-fit=no\">\n\x20\x20\x20\x2
+SF:0<title>404\x20Page\x20Not\x20Found</title>\n\x20\x20\x20\x20<link\x20r
+SF:el=\"shortcut\x20icon\"\x20href=\"/favicon\.ico\">\n\x20\x20\x20\x20<li
+SF:nk\x20rel=\"stylesheet\"\x20href=\"/ui-library/plesk-ui-library\.css\?3
+SF:\.31\.0\">\n\x20\x20\x20\x20<script\x20src=\"/ui-library/plesk-ui-libra
+SF:ry\.min\.js\?3\.31\.0\"></script>\n\x20\x20\x20\x20<script\x20src=\"/cp
+SF:/javascript/vendors\.js\"></script>\n\x20\x20\x20\x20<script\x20src=\"/
+SF:cp/javascript/main\.js\"></script>\n\x20\x20\x20\x20<script\x20src=\"/e
+SF:rror_docs/uat\.js\?v3\"></script>\n<link\x20href=\"/error_docs/app\.css
+SF:\?5ddcce66fe3b3bc08d68\"\x20rel=\"stylesheet\"></head>\n<body>\n<div\x2
+SF:0id");
+Aggressive OS guesses: Linux 5.4 (99%), Linux 5.0 - 5.4 (99%), Linux 4.15 - 5.6 (97%), Linux 5.0 - 5.3 (96%), Linux 2.6.32 - 3.13 (96%), Linux 5.1 (95%), Linux 2.6.22 - 2.6.36 (95%), Linux 3.10 - 4.11 (95%), Linux 5.0 (94%), Linux 2.6.32 (94%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 9 hops
+Service Info: Host:  rc23l0103.dnh.net; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 36.75 seconds
