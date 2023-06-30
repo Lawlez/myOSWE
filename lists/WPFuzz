@@ -2,6 +2,8 @@ index.php
 license.txt
 readme.html
 wp-activate.php
+wp/wp-login.php
+wordpress/wp-login.php
 wp-admin/
 wp-admin/about.php
 wp-admin/admin-ajax.php
