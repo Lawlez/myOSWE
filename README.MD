@@ -4,16 +4,30 @@
 
 ## About
 
-In this repository I document my jorney to becoming an Offensive Security Web Expert (OSWE). Furthermore I will publish an helpful tools or media I found as well as code I wrote during this time in this repository.
+My collection of useful resources, tools and solutions used for Pentesting or security assessments. 
 
----
+- [x] **htb**: contains files and writeups for various hackthebox challenges and machines. Usually the solution is not included ;)
+- [x] **lists**: contains various Fuzzing lists used for pentesting
+- [x] **misc**: miscallenous files that dont fit anywhere else, f.e. Report template
+- [x] **pdf**: Various PDF files, Cheatsheets, writeups and other pdfs worht to look at
+- [x] **scripts**: contains helpful scripts mostly used for pentesting but also some other stuff, also contains CVE PoC's and duckyscripts
+
+
+Originally in this repository I documented my jorney to becoming an Offensive Security Web Expert (OSWE). Currently im using this repository as a one stop shop for all my IT & Security needs.
+
+------------------------------------------------------------------------------------------
 <br/>
+
 
 ## Tools
 
 - [x] ([CyberChef](https://cyberchef.cybertap.ch)) a web app for encryption, encoding, compression and data analysis
 - [x] ([JSNICE](http://jsnice.org/)) a JavaScript Deobfuscation tool
 - [x] ([boxentriq/code-breaking](https://www.boxentriq.com/code-breaking)) various codebreaking and cipher tools
+- [x] ([SSLLabs](https://www.ssllabs.com/ssltest/analyze.html)) Test SSL of any webserver
+- [x] ([deps.dev](https://deps.dev/)) Understand your dependencies
+- [x] ([dehashed.com](https://dehashed.com/)) Leaked Passwords in plaintext
+
 
 <br/>
 
