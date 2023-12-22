@@ -1,0 +1,13 @@
+.container {
+    width: 85% !important;
+    max-width: 100% !important;
+    height: 60% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 auto !important;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%,-55%);
+  }
