@@ -15,6 +15,7 @@ def parse_nuclei_json(json_file):
 def add_text(page, text, position, fontsize=12, fontname="helv", color=(0, 0, 0), wrap_width=90):
     wrapped_text = "\n".join(wrap(text, wrap_width))
     page.insert_text(position, wrapped_text, fontsize=fontsize, fontname=fontname, color=color)
+    return wrapped_text.count('\n') + 1  # Return the number of lines for spacing
 
 # Get severity color
 def get_severity_color(severity):
@@ -98,10 +99,10 @@ def create_pdf_report(data, output_pdf):
             description = f"Template ID: {item.get('template-id', 'N/A')}\n"
             response = item.get('response', '')
             encoded_response = base64.b64encode(response.encode()).decode() if response else 'N/A'
-            description += f"Response (base64): {encoded_response}\n"
+            description += f"Response (base64):\n{encoded_response}\n"
         
-        add_text(page, description, (72, y_position), fontsize=12, fontname="helv", color=(0, 0, 0))
-        y_position += 100
+        lines = add_text(page, description, (72, y_position), fontsize=12, fontname="helv", color=(0, 0, 0))
+        y_position += lines * 12  # Adjust y_position based on number of lines
         
         page.draw_line((72, y_position), (500, y_position), color=(0, 0.5, 0))
         y_position += 20
