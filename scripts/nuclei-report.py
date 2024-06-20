@@ -72,6 +72,22 @@ def create_finding_summary(page, item, y_position):
     
     page.insert_text((72, y_position), f"Path: {path}", fontsize=12, fontname="helv")
     y_position += 20
+
+    matcher_name = item.get('matcher-name')
+    if matcher_name:
+        page.insert_text((72, y_position), f"Matcher Name: {matcher_name}", fontsize=12, fontname="helv")
+        y_position += 20
+    
+    extractor_name = item.get('extractor-name')
+    if extractor_name:
+        page.insert_text((72, y_position), f"Extractor Name: {extractor_name}", fontsize=12, fontname="helv")
+        y_position += 20
+    
+    extracted_results = item.get('extracted-results')
+    if extracted_results:
+        extracted_results_text = f"Extracted Results: {', '.join(extracted_results)}"
+        lines = add_text(page, extracted_results_text, (72, y_position), fontsize=12, fontname="helv", color=(0, 0, 0))
+        y_position += lines * 12
     
     return y_position
 
@@ -102,7 +118,12 @@ def create_pdf_report(data, output_pdf):
             description += f"Response (base64):\n{encoded_response}\n"
         
         lines = add_text(page, description, (72, y_position), fontsize=12, fontname="helv", color=(0, 0, 0))
-        y_position += lines * 12  # Adjust y_position based on number of lines
+        y_position += lines * 16  # Adjust y_position based on number of lines
+
+        remediation = item['info'].get('remediation')
+        if remediation:
+            lines = add_text(page, f"Remediation: {remediation}", (72, y_position), fontsize=12, fontname="helv", color=(0, 0, 0))
+            y_position += lines * 14  # Adjust y_position based on number of lines
         
         page.draw_line((72, y_position), (500, y_position), color=(0, 0.5, 0))
         y_position += 20
