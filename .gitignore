@@ -11,3 +11,7 @@ htb/challenges/pwn/pwn_modern_typer/Modern Typer.zip
 htb/challenges/pwn/pwn_modern_typer/chromium/chrome
 
 *lwlx-*
+/scripts/env/Scripts
+/scripts/env/share
+/scripts/env/Lib
+/scripts/env/Include

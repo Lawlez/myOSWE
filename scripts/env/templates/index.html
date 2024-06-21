@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Driving Car Simulation</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const canvas = document.getElementById('simulationCanvas');
+            const ctx = canvas.getContext('2d');
+            const carWidth = 18; // Car size
+            const carHeight = 12; // Car size
+
+            function drawTrack() {
+                // Draw a simple rectangular track
+                ctx.beginPath();
+                ctx.rect(50, 50, 500, 300); // Example track dimensions
+                ctx.lineWidth = 2;
+                ctx.strokeStyle = 'black';
+                ctx.stroke();
+            }
+
+            function drawCar(positionArray) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
+                drawTrack(); // Redraw the track
+                
+                // Ensure positionArray is correctly interpreted
+                if (!positionArray || positionArray.length !== 2) {
+                    console.error('Invalid car position:', positionArray);
+                    return; // Exit if positionArray is invalid
+                }
+
+                // Convert array to object with x, y for easier reading
+                const position = {
+                    x: positionArray[0],
+                    y: positionArray[1]
+                };
+
+                // Draw the car centered on its position
+                ctx.fillStyle = 'green';
+                ctx.fillRect(position.x - carWidth / 2, position.y - carHeight / 2, carWidth, carHeight);
+            }
+
+            function updatePosition() {
+                fetch('/update', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({action: 'move'}),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    drawCar(data.position);
+                    if (data.crashed) {
+                        console.log("Crash!");
+                    } else if (data.finished) {
+                        console.log("Finished!");
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            }
+
+            // Initial drawing of track and setting up position updates
+            drawTrack();
+            setInterval(updatePosition, 300); // Update the position every second
+        });
+    </script>
+</head>
+<body>
+    <h3>Self-Driving Car Simulation</h3>
+    <canvas id="simulationCanvas" width="800" height="600" style="border:1px solid #000000;"></canvas>
+</body>
+</html>
