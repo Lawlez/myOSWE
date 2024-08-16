@@ -15,3 +15,9 @@ htb/challenges/pwn/pwn_modern_typer/chromium/chrome
 /scripts/env/share
 /scripts/env/Lib
 /scripts/env/Include
+scripts/hosts.txt
+scripts/img.txt
+scripts/licenses.txt
+scripts/tbk.json
+scripts/urls.txt
+scripts/x.json
