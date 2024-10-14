@@ -1795,3 +1795,664 @@ b'<!doctype html>\n<html>\n<head>\n    <title>Example Domain</title>\n\n    <met
 http://example.com/page?param=;"=%.*.+
 {'Content-Encoding': 'gzip', 'Accept-Ranges': 'bytes', 'Age': '462411', 'Cache-Control': 'max-age=604800', 'Content-Type': 'text/html; charset=UTF-8', 'Date': 'Tue, 21 Feb 2023 22:31:43 GMT', 'Expires': 'Tue, 28 Feb 2023 22:31:43 GMT', 'Last-Modified': 'Thu, 16 Feb 2023 14:04:52 GMT', 'Server': 'ECS (dcb/7ECA)', 'Vary': 'Accept-Encoding', 'X-Cache': '404-HIT', 'Content-Length': '648'}
 b'<!doctype html>\n<html>\n<head>\n    <title>Example Domain</title>\n\n    <meta charset="utf-8" />\n    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />\n    <meta name="viewport" content="width=device-width, initial-scale=1" />\n    <style type="text/css">\n    body {\n        background-color: #f0f0f2;\n        margin: 0;\n        padding: 0;\n        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;\n        \n    }\n    div {\n        width: 600px;\n        margin: 5em auto;\n        padding: 2em;\n        background-color: #fdfdff;\n        border-radius: 0.5em;\n        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);\n    }\n    a:link, a:visited {\n        color: #38488f;\n        text-decoration: none;\n    }\n    @media (max-width: 700px) {\n        div {\n            margin: 0 auto;\n            width: auto;\n        }\n    }\n    </style>    \n</head>\n\n<body>\n<div>\n    <h1>Example Domain</h1>\n    <p>This domain is for use in illustrative examples in documents. You may use this\n    domain in literature without prior coordination or asking for permission.</p>\n    <p><a href="https://www.iana.org/domains/example">More information...</a></p>\n</div>\n</body>\n</html>\n'::<Response [404]>
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Error Page</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<CENTER><H2>
+The sent method is not allowed
+</H2></CENTER>
+</BODY></HTML>
+
+https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Julius B&auml;r - Error Page</title>
+    <meta charset="utf-8"/>
+    <meta name="robots" content="noindex,nofollow"/>
+    <meta name="keywords" content="jb-errorpage-tag"/>
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no"/>
+
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/info/standard/webdata/icons/ms-icon-310x310.png">
+
+	<link rel="shortcut icon" href="/info/standard/webdata/icons/favicon.ico">
+	<link rel="shortcut icon" type="image/png" href="/info/standard/webdata/icons/favicon-16x16.png" sizes="16x16">
+	<link rel="shortcut icon" type="image/png" href="/info/standard/webdata/icons/favicon-32x32.png" sizes="32x32">
+	<link rel="shortcut icon" type="image/png" href="/info/standard/webdata/icons/favicon-96x96.png" sizes="96x96">
+	
+	<link rel="icon" type="image/png" href="/info/standard/webdata/icons/android-icon-36x36.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/info/standard/webdata/icons/android-icon-48x48.png" sizes="48x48">
+	<link rel="icon" type="image/png" href="/info/standard/webdata/icons/android-icon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="/info/standard/webdata/icons/android-icon-144x144.png" sizes="144x144">
+	<link rel="icon" type="image/png" href="/info/standard/webdata/icons/android-icon-192x192.png" sizes="192x192">
+
+	<link rel="apple-touch-icon" href="/info/standard/webdata/icons/apple-icon.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/info/standard/webdata/icons/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/info/standard/webdata/icons/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/info/standard/webdata/icons/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/info/standard/webdata/icons/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/info/standard/webdata/icons/apple-icon-180x180.png">
+
+    <link rel="stylesheet" href="/info/standard/webdata/css/merged.css">
+	<script src="/info/standard/webdata/js/merged.js"></script>
+
+
+<script>
+	function getUrlVars() {
+		var vars = {};
+		var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+			vars[key] = value;
+		});
+		return vars;
+	}
+	function getBrowserLanguage() {
+		var lang = window.navigator.languages ? window.navigator.languages[0] : null;
+			lang = lang || window.navigator.language || window.navigator.browserLanguage || window.navigator.userLanguage;
+		if (lang.indexOf('-') !== -1)
+			lang = lang.split('-')[0];
+
+		if (lang.indexOf('_') !== -1)
+			lang = lang.split('_')[0];
+		return lang;
+	}
+	function coloredLanguageButtons() {
+		var className="nav-link active"
+		var lang = getUrlVars()["language"];
+		if (lang) {
+			var button = document.getElementById(lang);
+			button.className=className
+			enableLanguageCode(lang, "block");
+		} else {
+			var userLang = getBrowserLanguage();
+			var button = document.getElementById(userLang);
+			if (button) {
+				button.className=className
+				enableLanguageCode(userLang, "block");
+			} else {
+				document.getElementById("en").className=className;
+				enableLanguageCode("en", "block");
+			}
+		}
+	}
+	function enableLanguageCode(lang, display) {
+		var errpage = document.getElementById(lang + "-error");
+		var footer = document.getElementById(lang + "-footer");
+		errpage.style.display = display;
+		if (display == "block") {
+			display="flex";
+		}
+		footer.style.display = display;
+	}
+	function setLanguange(lang) {
+		var classNameActive="nav-link active"
+		var classNameNoActive="nav-link"
+		var languages=["en", "de", "fr", "it", "es"]
+		for (let index = 0; index < languages.length; ++index) {
+			let l = languages[index];
+			var button = document.getElementById(l);
+			button.className=classNameNoActive
+			enableLanguageCode(l, "none");
+		}
+		var button = document.getElementById(lang);
+		button.className=classNameActive
+		enableLanguageCode(lang, "block");
+	}
+	
+	window.onload=coloredLanguageButtons;
+</script>
+</head>
+<body class="example">
+
+<header class="bjb-header">
+    <div class="container container-fluid">
+        <div class="row">
+            <div class="col text-left">
+			</div>
+            <div class="col text-center bjb-logo">
+                <a href="#">
+                    <img alt="Julius Baer" src="/info/standard/webdata/img/juliusbaer-logo.svg"/>
+                </a>
+            </div>
+            <div class="col text-right bjb-header-lang">
+                <ul class="list-inline desktop">
+												
+									<li class="list-inline-item"><a onclick="setLanguange('en')" id="en" class="nav-link">EN</a></li>
+								    <li class="list-inline-item"><a onclick="setLanguange('de')"  id="de" class="nav-link">DE</a></li>
+								    <li class="list-inline-item"><a onclick="setLanguange('fr')"  id="fr" class="nav-link">FR</a></li>
+								    <li class="list-inline-item"><a onclick="setLanguange('es')"  id="es" class="nav-link">ES</a></li>
+								    <li class="list-inline-item"><a onclick="setLanguange('it')"  id="it" class="nav-link">IT</a></li>
+				                </ul>
+                <nav class="row navbar navbar-expand-lg bjb-navigation-lang">
+                    <div>
+                        <ul id="mainNavigationLang" class="col list-inline mr-auto justify-content-center collapse navbar-collapse mobile">
+                            <li class="list-inline-item nav-item dropdown">
+								<a onclick="setLanguange('de')"  class="nav-link dropdown-toggle" id="navbarDropdownLang" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">DE</a>
+                                <div class="dropdown-menu">
+									<a onclick="setLanguange('en')"  class="dropdown-item">EN</a>
+									<a onclick="setLanguange('fr')"  class="dropdown-item">FR</a>
+									<a onclick="setLanguange('es')"  class="dropdown-item">ES</a>
+									<a onclick="setLanguange('it')"  class="dropdown-item">IT</a>
+								</div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+	
+<div class="bjb-content">
+	<div class="container container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-12 mb-4 mb-lg-0">
+                <div class="bjb-layout-boxes mw-400 bjb-shadow" id="en-error" style="display:none;">
+                    <h3 class="text-center">Website currently not available</h3>
+                    <p>Dear Client,</p>
+					<p>The requested page is not available at the moment.</p>
+					<p>We are working on a solution and kindly ask you to try again later.</p>
+					<p>Thank you for your understanding.</p>
+					<p>ID: 037b3e89-003492-f80a6ce0-1927bb513b9-000853d3<p>
+					<p>Timestamp: Fri, 11 Oct 2024 13:11:57 GMT<p>
+                    <a class="btn btn-primary" onclick="history.go(-1);" href="#">Back</a>
+                </div>
+				<div class="bjb-layout-boxes mw-400 bjb-shadow" id="de-error" style="display:none;">
+                    <h3 class="text-center">Webseite ist zurzeit nicht verf&uuml;gbar</h3>
+                    <p>Liebe Kundinnen und Kunden</p>
+					<p>Die gew&uuml;nschte Webseite ist zurzeit nicht verf&uuml;gbar.</p>
+					<p>Wir arbeiten an einer L&ouml;sung und bitten Sie, es zu einem sp&auml;teren Zeitpunkt nochmals zu versuchen.</p>
+					<p>Vielen Dank f&uuml;r Ihr Verst&auml;ndnis.</p>
+					<p>ID: 037b3e89-003492-f80a6ce0-1927bb513b9-000853d3<p>
+					<p>Timestamp: Fri, 11 Oct 2024 13:11:57 GMT<p>
+                    <a class="btn btn-primary" onclick="history.go(-1);" href="#">Zur&uuml;ck</a>
+                </div>
+				<div class="bjb-layout-boxes mw-400 bjb-shadow" id="fr-error" style="display:none;">
+                    <h3 class="text-center">Page Web non disponible</h3>
+                    <p>Madame, Monsieur,</p>
+					<p>le syst&egrave;me est momentan&eacute;ment indisponible.</p>
+					<p>Votre op&eacute;ration ne peut pas &ecirc;tre trait&eacute;e. Nous faisons tout notre possible pour rem&eacute;dier &agrave; ce d&eacute;rangement dans les meilleurs d&eacute;lais.</p>
+					<p>Merci de votre compr&eacute;hension.</p>
+					<p>ID: 037b3e89-003492-f80a6ce0-1927bb513b9-000853d3<p>
+					<p>Timestamp: Fri, 11 Oct 2024 13:11:57 GMT<p>
+                    <a class="btn btn-primary" onclick="history.go(-1);" href="#">Retour</a>
+                </div>
+				<div class="bjb-layout-boxes mw-400 bjb-shadow" id="it-error" style="display:none;">
+                    <h3 class="text-center">Il sito non &egrave; disponibile</h3>
+                    <p>Gentili signore, egregi signori,</p>
+					<p>La pagina richiesta non &egrave; disponibile al momento.<br> Stiamo lavorando a una soluzione e vi chiediamo gentilmente di riprovare pi&ugrave; tardi.</p>
+					<p>Grazie per la sua comprensione.</p>
+					<p>ID: 037b3e89-003492-f80a6ce0-1927bb513b9-000853d3<p>
+					<p>Timestamp: Fri, 11 Oct 2024 13:11:57 GMT<p>
+                    <a class="btn btn-primary" onclick="history.go(-1);" href="#">Ritornare</a>
+                </div>
+				<div class="bjb-layout-boxes mw-400 bjb-shadow" id="es-error" style="display:none;">
+                    <h3 class="text-center">P&aacute;gina Web actualmente no disponible</h3>
+                    <p>Estimada cliente, estimado cliente:</p>
+					<p>La p&aacute;gina web solicitada no est&aacute; disponible en este momento.</p>
+					<p>Estamos trabajando en una soluci&oacute;n y le pedimos que vuelva a intentarlo m&aacute;s tarde.</p>
+					<p>Gracias por su comprensi&oacute;n.</p>
+					<p>ID: 037b3e89-003492-f80a6ce0-1927bb513b9-000853d3<p>
+					<p>Timestamp: Fri, 11 Oct 2024 13:11:57 GMT<p>
+                    <a class="btn btn-primary" onclick="history.go(-1);" href="#">Volver</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer class="bjb-footer">
+    <div class="container container-fluid">
+        <div class="row" id="de-footer" style="display:none;">
+			<div class="col"></div>
+            <div class="col">
+                <h3>Kontakte</h3>
+                <p>Montag bis Freitag, 8 bis 20 Uhr (CET)<br>+800 0800 35 35 (Geb&uuml;hrenfreie Nummer)<br>+41 58 888 35 35 (geb&uuml;hrenpflichtig)</p>
+                <a href="mailto: info@juliusbaer.com" class="bjb-link-arrow">info@juliusbaer.com</a>
+            </div>
+			<div class="col"></div>
+        </div>
+		<div class="row" id="en-footer" style="display:none;">
+			<div class="col"></div>
+            <div class="col">
+                <h3>CONTACT</h3>
+                <p>Monday to Friday, 8 a.m. to 8 p.m. (CET)<br>+800 0800 35 35 (toll-free number)<br>+41 (0) 58 888 35 35 (standard rates apply)</p>
+                <a href="mailto: info@juliusbaer.com" class="bjb-link-arrow">info@juliusbaer.com</a>
+            </div>
+			<div class="col"></div>
+        </div>
+		<div class="row" id="fr-footer" style="display:none;">
+			<div class="col"></div>
+            <div class="col">
+                <h3>Contact</h3>
+                <p>Lundi au vendredi de 8 h &agrave; 20 h (HEC)<br>+800 0800 35 35 (num&eacute;ro gratuit)<br>+41 (0) 58 888 35 35 (prix d'un appel normal)</p>
+                <a href="mailto: info@juliusbaer.com" class="bjb-link-arrow">info@juliusbaer.com</a>
+            </div>
+			<div class="col"></div>
+        </div>
+		 <div class="row" id="it-footer" style="display:none;">
+			<div class="col"></div>
+            <div class="col">
+                <h3>CONTATTO</h3>
+                <p>Da luned&igrave; a venerd&igrave;, dalle 8 alle 20 (CET)<br>+800 0800 35 35 (numero verde)<br>+41 (0) 58 888 35 35 (a pagamento)</p>
+                <a href="mailto: info@juliusbaer.com" class="bjb-link-arrow">info@juliusbaer.com</a>
+            </div>
+			<div class="col"></div>
+        </div>
+		 <div class="row" id="es-footer" style="display:none;">
+			<div class="col"></div>
+            <div class="col">
+                <h3>Contactos</h3>
+                <p>L. - V. 8.00 - 20.00 (CET)<br>+800 0800 35 35 (n&uacute;mero gratuito)<br>+41 (0) 58 888 35 35 (precio de una llamada normal)</p>
+                <a href="mailto: info@juliusbaer.com" class="bjb-link-arrow">info@juliusbaer.com</a>
+            </div>
+			<div class="col"></div>
+        </div>
+        <div class="row">
+            <div class="col divider"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <a href="https://www.juliusbaer.com/en/about-us/" class="bjb-link-arrow">About Julius Baer</a>
+                <a href="https://www.juliusbaer.com/en/terms-of-use/" class="bjb-link-arrow">Terms Of Use</a>
+                <a href="https://www.juliusbaer.com/en/data-privacy-policy/" class="bjb-link-arrow">Privacy Policy</a>
+            </div>
+            <div class="col-md-4">
+                <p>&copy; Bank Julius Baer</p>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+
