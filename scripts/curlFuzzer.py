@@ -92,8 +92,8 @@ def start_fuzzer(curl_command, num_threads=10):
 
 # Example CURL command with @@ as a placeholder
 curl_command = "curl --path-as-is -i -s -k -X $'POST' \
-    -H $'Host: mobileappdashboard-uat.juliusbaer.com' -H $'Content-Length: 0' -H $'Referer: @@' -H $'Content-Type: application/json' -H $'Accept: */*' -H $'Sec-Fetch-Site: same-origin' -H $'Sec-Fetch-Mode: cors' -H $'Sec-Fetch-Dest: empty' -H $'Accept-Encoding: gzip, deflate, br' -H $'Accept-Language: en-US,en;q=0.9' -H $'Connection: close' \
-    $'https://mobileappdashboard-uat.juliusbaer.com/api/device/initAuthentication'"
+    -H $'Host: thing.com' -H $'Content-Length: 0' -H $'Referer: @@' -H $'Content-Type: application/json' -H $'Accept: */*' -H $'Sec-Fetch-Site: same-origin' -H $'Sec-Fetch-Mode: cors' -H $'Sec-Fetch-Dest: empty' -H $'Accept-Encoding: gzip, deflate, br' -H $'Accept-Language: en-US,en;q=0.9' -H $'Connection: close' \
+    $'https://thang.com/api/device/initAuthentication'"
 
 # Start the fuzzer
 start_fuzzer(curl_command, num_threads=10)
