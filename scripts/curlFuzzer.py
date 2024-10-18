@@ -7,8 +7,8 @@ import re
 
 # Your curl command with payload placeholder (marked with @@ for fuzzing)
 curl_command = "curl --path-as-is -i -s -k -X $'GET' \
-    -H $'Host: documents.juliusbaer.com' -H $'Sec-Ch-Ua: \"Chromium\";v=\"129\", \"Not=A?Brand\";v=\"8\"' -H $'Sec-Ch-Ua-Mobile: ?0' -H $'Sec-Ch-Ua-Platform: \"Windows\"' -H $'Accept-Language: de-DE,de;q=0.9' -H $'Upgrade-Insecure-Requests: 1' -H $'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.6668.71 Safari/537.36' -H $'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7' -H $'Sec-Fetch-Site: none' -H $'Sec-Fetch-Mode: navigate' -H $'Sec-Fetch-User: ?1' -H $'Sec-Fetch-Dest: document' -H $'Accept-Encoding: gzip, deflate, br' -H $'If-Modified-Since: Thu, 17 Oct 2024 08:42:01 GMT' -H $'Priority: u=0, i' -H $'Connection: keep-alive' \
-    $'https://documents.juliusbaer.com/kid/@@_de_20221114-112935_ch.pdf'"
+    -H $'Host: documents.host.com' -H $'Sec-Ch-Ua: \"Chromium\";v=\"129\", \"Not=A?Brand\";v=\"8\"' -H $'Sec-Ch-Ua-Mobile: ?0' -H $'Sec-Ch-Ua-Platform: \"Windows\"' -H $'Accept-Language: de-DE,de;q=0.9' -H $'Upgrade-Insecure-Requests: 1' -H $'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.6677.71 Safari/537.36' -H $'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7' -H $'Sec-Fetch-Site: none' -H $'Sec-Fetch-Mode: navigate' -H $'Sec-Fetch-User: ?1' -H $'Sec-Fetch-Dest: document' -H $'Accept-Encoding: gzip, deflate, br' -H $'If-Modified-Since: Thu, 17 Oct 2024 08:42:01 GMT' -H $'Priority: u=0, i' -H $'Connection: keep-alive' \
+    $'https://documents.host.com/id/@@_de_20221114-112935_ch.pdf'"
 
 proxy_url = "http://127.0.0.1:8080"
 custom_ssl_cert_path = None  # Set to your custom SSL certificate path if needed
