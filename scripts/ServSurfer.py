@@ -1,9 +1,6 @@
-#!/usr/bin/python
 import requests
 import argparse
 import socket
-
-# Usage: python3 ServSurfer.py -u "http://example.com/vulnerable?url=@@"
 
 def is_private_ip(ip):
     try:
