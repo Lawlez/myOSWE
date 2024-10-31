@@ -25,7 +25,7 @@ method, url, headers = parse_curl_command(curl_command)
 # Fuzzing modes
 FUZZ_MODE_RANDOM = "random"
 FUZZ_MODE_TRAVERSAL = "traversal"
-fuzz_mode = FUZZ_MODE_TRAVERSAL  # Set the fuzzing mode here
+fuzz_mode = FUZZ_MODE_RANDOM  # Set the fuzzing mode here
 
 # Define the character sets to use for fuzzing (for random input)
 charsets = {
