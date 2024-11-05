@@ -18,9 +18,13 @@ def parse_curl_command(command):
     method = re.search(r"-X \$'(\w+)'", command).group(1)
     url = re.search(r"\$'(https?://[^\s]+)'", command).group(1)
     headers = dict(re.findall(r"-H \$'([^:]+):\s?([^']+)'", command))
-    return method, url, headers
+    data_match = re.search(r"--data-binary \$'(.*?)'", command, re.DOTALL)
+    data = data_match.group(1) if data_match else None
+    cookies_match = re.search(r"-b \$'([^']+)'", command)
+    cookies = cookies_match.group(1) if cookies_match else None
+    return method, url, headers, data, cookies
 
-method, url, headers = parse_curl_command(curl_command)
+method, url, headers, data, cookies  = parse_curl_command(curl_command)
 
 # Fuzzing modes
 FUZZ_MODE_RANDOM = "random"
