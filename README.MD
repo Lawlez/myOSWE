@@ -7,10 +7,11 @@
 My collection of useful resources, tools and solutions used for Pentesting or security assessments. 
 
 - [x] **htb**: contains files and writeups for various hackthebox challenges and machines. Usually the solution is not included ;)
-- [x] **lists**: contains various Fuzzing lists used for pentesting
+- [x] **lists**: contains various Fuzzing and payload lists used for pentesting
 - [x] **misc**: miscallenous files that dont fit anywhere else, f.e. Report template
 - [x] **pdf**: Various PDF files, Cheatsheets, writeups and other pdfs worht to look at
 - [x] **scripts**: contains helpful scripts mostly used for pentesting but also some other stuff, also contains CVE PoC's and duckyscripts
+- [x] **pentestfiles**: contains ready to use files to use as payloads, especially for file upload attacks. Contains shells, EICAR files, and various other special files.
 
 
 Originally in this repository I documented my jorney to becoming an Offensive Security Web Expert (OSWE). Currently im using this repository as a one stop shop for all my IT & Security needs.
@@ -27,6 +28,9 @@ Originally in this repository I documented my jorney to becoming an Offensive Se
 - [x] ([SSLLabs](https://www.ssllabs.com/ssltest/analyze.html)) Test SSL of any webserver
 - [x] ([deps.dev](https://deps.dev/)) Understand your dependencies
 - [x] ([dehashed.com](https://dehashed.com/)) Leaked Passwords in plaintext
+- [x] ([Regex101](https://regex101.com/)) a Regex Helper Tool
+- [x] ([Hackthebox Academy](https://academy.hackthebox.com/)) Best place to learn new CyberSec skills.
+- [x] ([Web Proxy](https://removepaywalls.com/2/https://hackthebox.com)) Cant access websites, try this.
 
 
 <br/>
