@@ -64,7 +64,11 @@ None
 hasOwnProperty
 \
 \\
-
+graphql
+api
+api/graphql
+graphql/api
+graphql/graphql
 #	Numeric Strings
 #
 #	Strings which can be interpreted as numeric
