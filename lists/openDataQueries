@@ -1,0 +1,65 @@
+?$filter=1 eq 1
+?$filter=1 eq 1 and 2 eq 2
+?$filter=Organization/Name eq 'ACME'
+?$filter=startswith(Name,'A')
+?$filter=startswith(Name,'A') and endswith(Name,'Z')
+?$filter=startswith(Name,'A') and endswith(Name,'Z') and contains(Name,'test')
+?$filter=endswith(Name,'Z')
+?$filter=contains(Name,'test')
+?$filter=substringof('test',Name)
+?$filter=length(Name) gt 10
+?$filter=substring(Name,1,3) eq 'dmi'
+?$filter=Name eq 'admin' or 1 eq 1
+?$filter=not endswith(Name,'User')
+?$filter=Name eq 'admin' and not startswith(Role,'Guest')
+?$filter=Role eq 'Admin' or Role eq 'Superuser'
+?$filter=(Role eq 'User') or true
+?$filter=toupper(Name) eq 'ADMIN'
+?$filter=toupper(Name) eq 'ADMIN' and toupper(Role) eq 'USER'
+?$filter=tolower(Name) eq 'guest'
+?$filter=contains(Name, 'a%cc%88')
+?$filter=contains(Name, 'a%cc%88') or contains(Name, 'a%cc%88')
+?$filter=contains(Name, 'a%cc%88') or contains(Name, 'a%cc%88') and 1 eq 1
+?$filter=contains(Name, '𝒜')
+?$filter=CreatedDate gt 2025-01-01T00:00:00Z
+?$filter=CreatedDate lt now()
+?$filter=CreatedDate eq null
+?$filter=CreatedDate eq 2024-12-31T00:00:00Z
+?$filter=CreatedDate ne 2024-12-31
+?$filter=Organization/ID eq '../../../../etc/passwd'
+?$filter=Organization/ID eq 'a'' or ''1''=''1'
+?$filter=Organization/Name eq 'a'' or ''1''=''1'
+?$filter=Organization/ID eq cast('evil' as Edm.Int32)
+?$filter=Name eq ''' OR 1=1 --'
+?$filter=Name eq ''' OR 1=1 --' and 1 eq 1
+?$filter=startswith(Name,'')) or 1 eq 1 or startswith(Name,''a'')
+?$filter=substringof('a',Name) or 1 eq 1 or substringof('b',Name)
+?$filter=substringof('a',Name) or 1 eq 1 or substringof('b',Name) and 1 eq 1    
+?$filter=geo.distance(Location, geography'POINT(0 0)') lt 100
+?$filter=math.round(Salary) gt 5000
+?$filter=concat(Name, Surname) eq 'AdminSmith'
+?$filter=indexof(Name, 'Admin') eq 0
+?$top=999999
+?$orderby=Name desc
+?$expand=Organization
+?$select=Name,Role,PasswordHash
+?$filter=Organization/OrganizationID%20in%20(%2758XIBCHGAI%27)
+?$filter=Organization/OrganizationID in ('58XIBCHGAI')
+?$filter=Organization/OrganizationID eq '58XIBCHGAI'
+?$filter=Organization/OrganizationID eq '58XIBCHGAI' and Organization/Name eq 'ACME'
+?$count=true
+?$skip=100000
+?$skiptoken=eyJzY29wZSI6InJvb3QiLCJ0b2tlbiI6IjEifQ==
+?$filter=__metadata/type eq 'PrivilegedUser'
+?$filter=UserType eq 'System.Admin'
+?$filter=AccessLevel eq 'Root'
+?$filter=GroupName eq 'Domain Admins'
+?$filter=Permissions eq 'WriteAll'
+?$filter=Name eq null
+?$filter=Name eq ''
+?$filter=not (Name ne '')
+?$filter=not (startswith(Name,'A') and endswith(Name,'Z'))
+?$filter=Name eq 'admin' or Role eq null
+?$filter=ID in (1,2,3,4,5)
+?$filter=UserID in ('admin','root','superuser')
+?$filter=Role in ('Admin','User','Guest','Developer','Anonymous')
