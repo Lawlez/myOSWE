@@ -63,3 +63,13 @@
 ?$filter=ID in (1,2,3,4,5)
 ?$filter=UserID in ('admin','root','superuser')
 ?$filter=Role in ('Admin','User','Guest','Developer','Anonymous')
+?$filter=MeterReading/MeterReadingStatus/any(a:a/Status in ('PENDING_APPROVAL','PENDING_RESOLUTION','APPROVED')) and MeterReading/ResponsibleRegistrant/OrganizationId eq '58X104EC3T'&$orderby=MeterReading/StartDateTime desc&$top=50&$count=true
+?$filter=(Declaration/Period/StartDateTime lt 2025-04-01T00:00:00.000Z and Declaration/Period/EndDateTime ge 2025-03-01T00:00:00.000Z) and Declaration/ResponsibleRegistrant/OrganizationId ne null&$count=true
+?$filter=Declaration/Period/StartDateTime le now() and Declaration/Period/EndDateTime ge now()&$top=10&$orderby=Declaration/Period/StartDateTime desc
+?$filter=substringof('58X', Declaration/ResponsibleRegistrant/OrganizationId) and length(Declaration/ResponsibleRegistrant/OrganizationId) gt 5&$top=10
+?$filter=MeterReading/MeterReadingId in ('8B2DACD8-081A-4EE7-B50A-BFC8A289495D','0DE85657-32C5-4238-9549-4E5F5E1D6DC3','02E5738C-51E3-4D7E-B328-1A6E69A0A195')&$count=true
+?$filter=Declaration/Status eq 'APPROVED' and Declaration/Period/StartDateTime ge 2024-12-01T00:00:00.000Z and Declaration/Period/EndDateTime le 2025-03-31T23:59:59.999Z&$orderby=Declaration/Period/StartDateTime desc&$top=100
+?$filter=(Declaration/Status eq 'APPROVED' and (true eq true)) or (false eq false)&$top=1
+?$filter=Declaration/FooBarField eq 'somevalue'&$top=1
+?$filter=Declaration/Period/StartDateTime ge 'not-a-date'&$top=1
+?$filter=Declaration/Status eq 'APPROVED') or 1 eq 1&$top=1
