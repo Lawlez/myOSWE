@@ -8,5 +8,4 @@ public class AdminPrefs implements Serializable {
     public String favoriteQuote;
     public String favouriteBook;
     public Object theme;
-    
 }
