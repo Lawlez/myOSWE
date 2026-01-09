@@ -1,0 +1,75 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+## Author: Dominik Feger (lwlx)
+# This Vagrantfile configures a Parrot Security Linux VM for cloud pentesting.
+#
+
+Vagrant.configure("2") do |config|
+
+  # 1. --- VM Box Configuration ---
+  config.vm.box = "cybertap-registry/ParrotSec64"
+
+ # 2. --- Synced Folder Configuration ---
+  # This path is now dynamic. It automatically finds the user's home directory.
+  # IMPORTANT: Ensure a 'Desktop/SHR' folder exists in your user's home directory.
+  config.vm.synced_folder File.join(Dir.home, 'Desktop', 'SHR'), "/vagrant/HOST_SHARE"
+
+  # 3. --- VirtualBox Provider Configuration ---
+  config.vm.provider "virtualbox" do |vb|
+    vb.gui = true
+    vb.name = "ParrotSec64"
+    vb.memory = "8192"
+    vb.cpus = "8"
+    vb.customize ["modifyvm", :id, "--clipboard-mode", "bidirectional"]
+  end
+
+  # 4. --- Provisioning Block ---
+  config.vm.provision "shell", inline: <<-SHELL
+    #!/bin/bash
+
+    echo "--- Starting Provisioning Script for Additional Tools ---"
+
+    # --- System Update ---
+    echo "[INFO] Updating package lists..."
+    sudo apt-get update -y
+
+    # --- Keyboard Configuration ---
+    echo "[INFO] Configuring keyboard layouts to US and Swiss (CH)..."
+    sudo localectl set-x11-keymap us,ch
+
+    # --- Set AWS Environment Variables ---
+    echo "[INFO] Setting AWS environment variables system-wide..."
+    sudo tee /etc/profile.d/aws_pentest_env.sh > /dev/null <<'EOF'
+# --- AWS Cloud Pentesting Credentials ---
+export AWS_ACCESS_KEY_ID="ASXXXXXXX"
+export AWS_SECRET_ACCESS_KEY="XXXXXXXXX"
+export AWS_SESSION_TOKEN="XXXXXXXXX"
+export PATH="$HOME/.local/bin:$PATH"
+EOF
+    sudo chmod +x /etc/profile.d/aws_pentest_env.sh
+
+    # --- Install Python-based Cloud Tools ---
+    echo "[INFO] Installing Python-based tools (AWS CLI, awspx, S3Scanner)..."
+    sudo -u vagrant -H pip3 install awscli awspx s3scanner pacu --upgrade --user
+
+    # --- Install Git-based Cloud Tools ---
+    echo "[INFO] Cloning and setting up Prowler..."
+    sudo git clone https://github.com/prowler-cloud/prowler.git /opt/prowler
+    sudo chown -R vagrant:vagrant /opt/prowler
+
+    echo "[INFO] Cloning and setting up myOSWE..."
+    sudo git clone https://github.com/lawlez/myOSWE.git /opt/myOSWE
+    sudo chown -R vagrant:vagrant /opt/myOSWE
+
+    echo "[INFO] Cloning and setting up cloud_enum..."
+    sudo git clone https://github.com/initstring/cloud_enum.git /opt/cloud_enum
+    sudo chown -R vagrant:vagrant /opt/cloud_enum
+    sudo -u vagrant -H pip3 install -r /opt/cloud_enum/requirements.txt --user
+
+    echo "[INFO] Cloning and setting up s3enum..."
+    sudo git clone https://github.com/koenrh/s3enum.git /opt/s3enum
+    sudo chown -R vagrant:vagrant /opt/s3enum
+
+    echo "--- Provisioning Complete! ---"
+  SHELL
+end
