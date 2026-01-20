@@ -31,6 +31,7 @@ Originally in this repository I documented my jorney to becoming an Offensive Se
 - [x] ([Regex101](https://regex101.com/)) a Regex Helper Tool
 - [x] ([Hackthebox Academy](https://academy.hackthebox.com/)) Best place to learn new CyberSec skills.
 - [x] ([Web Proxy](https://removepaywalls.com/2/https://hackthebox.com)) Cant access websites, try this.
+- [x] ([Hudson Rock](https://www.hudsonrock.com/threat-intelligence-cybercrime-tools)) Free Infostealer intelligence toolset
 
 
 <br/>
