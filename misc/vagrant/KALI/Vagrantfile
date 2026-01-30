@@ -1,0 +1,144 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure("2") do |config|
+  # The most common configuration options are documented and commented below.
+  # For a complete reference, please see the online documentation at
+  # https://docs.vagrantup.com.
+
+  # Every Vagrant development environment requires a box. You can search for
+  # boxes at https://vagrantcloud.com/search.
+  config.vm.box = "kalilinux/rolling"
+
+  # Disable automatic box update checking. If you disable this, then
+  # boxes will only be checked for updates when the user runs
+  # `vagrant box outdated`. This is not recommended.
+  # config.vm.box_check_update = false
+
+  # Create a forwarded port mapping which allows access to a specific port
+  # within the machine from a port on the host machine. In the example below,
+  # accessing "localhost:8080" will access port 80 on the guest machine.
+  # NOTE: This will enable public access to the opened port
+  # config.vm.network "forwarded_port", guest: 80, host: 8080
+
+  # Create a forwarded port mapping which allows access to a specific port
+  # within the machine from a port on the host machine and only allow access
+  # via 127.0.0.1 to disable public access
+  #config.vm.network "forwarded_port", guest: 9000, host: 8081, host_ip: "127.0.0.1"
+
+  # Create a private network, which allows host-only access to the machine
+  # using a specific IP.
+  #config.vm.network "private_network", ip: "172.16.8.8"
+
+  # Create a public network, which generally matched to bridged network.
+  # Bridged networks make the machine appear as another physical device on
+  # your network.
+  config.vm.network "public_network"
+
+  # Share an additional folder to the guest VM. The first argument is
+  # the path on the host to the actual folder. The second argument is
+  # the path on the guest to mount the folder. And the optional third
+  # argument is a set of non-required options.
+  config.vm.synced_folder "C:/Users/dfeg/Desktop/SHR", "/vagrant/HOST_SHARE"
+
+  # Provider-specific configuration so you can fine-tune various
+  # backing providers for Vagrant. These expose provider-specific options.
+  # Example for VirtualBox:
+  #
+   config.vm.provider "virtualbox" do |vb|
+     # Display the VirtualBox GUI when booting the machine
+     vb.gui = true
+  
+     # Customize the amount of memory on the VM:
+     vb.memory = "4096"
+   end
+  #
+  # View the documentation for the provider you are using for more
+  # information on available options.
+
+  # Enable provisioning with a shell script. Additional provisioners such as
+  # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
+  # documentation for more information about their specific syntax and use.
+   config.vm.provision "shell", inline: <<-SHELL
+    apt-get update
+    
+    #set keymap
+    setxkbmap ch
+    #install apache
+    apt-get install -y apache2
+    cp /vagrant/HOST_SHARE/index.html /var/www/html/
+    cp /vagrant/HOST_SHARE/styles.css /var/www/html/
+
+    # let vagrant user run the server
+    sed -i 's/APACHE_RUN_USER=www-data/APACHE_RUN_USER=vagrant/g' /etc/apache2/envvars
+    sed -i 's/APACHE_RUN_GROUP=www-data/APACHE_RUN_GROUP=vagrant/g' /etc/apache2/envvars
+    ##verify
+    cat /etc/apache2/envvars | grep "APACHE_RUN_USER"
+
+    #change apache port
+    sed -i 's/80/9000/g' /etc/apache2/ports.conf
+    #optionally also replace ssl port
+    #sed -i 's/443/9001/g' /etc/apache2/ports.conf
+    #replace port in active vHost ( this also needs to be done for ssl if apliccable)
+    sed -i 's/80/9000/g' /etc/apache2/sites-enabled/000-default.conf
+
+   # --- Install Git-based Cloud Tools ---
+    echo "[INFO] Cloning and setting up Prowler..."
+    sudo git clone https://github.com/prowler-cloud/prowler.git /opt/prowler
+    sudo chown -R vagrant:vagrant /opt/prowler
+
+    echo "[INFO] Cloning and setting up cloud_enum..."
+    sudo git clone https://github.com/initstring/cloud_enum.git /opt/cloud_enum
+    sudo chown -R vagrant:vagrant /opt/cloud_enum
+    sudo -u vagrant -H pip3 install -r /opt/cloud_enum/requirements.txt --user
+
+    echo "[INFO] Cloning and setting up s3enum..."
+    sudo git clone https://github.com/koenrh/s3enum.git /opt/s3enum
+    sudo chown -R vagrant:vagrant /opt/s3enum
+
+    echo "[INFO] Cloning and setting up Pacu..."
+    sudo git clone https://github.com/RhinoSecurityLabs/pacu.git /opt/pacu
+    sudo chown -R vagrant:vagrant /opt/pacu
+    # The install script is interactive, so we pipe 'yes' to it to auto-confirm.
+    # We run it in a subshell to avoid changing the script's working directory.
+    (cd /opt/pacu && yes | sudo -u vagrant -H bash install.sh)
+
+    service apache2 restart
+    #restart apache
+
+    git clone https://github.com/Lawlez/crypt.git
+    cd crypt
+    ls -L
+
+    #install nodejs
+    apt install nodejs -y
+    node -v
+    apt install npm -y
+    npm -v
+
+  #install nvm
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+    nvm install stable
+    nvm use stable
+    node -v
+    #update npm
+    npm install -g npm@latest
+    npm install -g npx
+    npm install -g yarn@latest
+    
+    yarn set version latest
+    yarn -v
+    yarn install
+
+
+   SHELL
+end
