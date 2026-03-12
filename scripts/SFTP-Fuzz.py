@@ -7,6 +7,7 @@ import socket
 import os
 import random
 import stat
+import threading
 from pwn import *
 
 # sftp needs big endian otherwise lengths parse backwards and crash it
@@ -20,11 +21,15 @@ logging.getLogger("paramiko").setLevel(logging.CRITICAL)
 SSH_FXP_INIT = 1
 SSH_FXP_VERSION = 2
 SSH_FXP_OPEN = 3
+SSH_FXP_CLOSE = 4
 SSH_FXP_READ = 5
 SSH_FXP_WRITE = 6
 SSH_FXP_OPENDIR = 11
 SSH_FXP_REMOVE = 13
+SSH_FXP_RENAME = 18
+SSH_FXP_SYMLINK = 20
 SSH_FXP_STATUS = 101
+SSH_FXP_HANDLE = 104
 
 class SFTPTube:
     def __init__(self, host, port, user, password):
@@ -346,15 +351,134 @@ class Fuzzer:
             self.req_id += 1
             tube.close()
             
-            # test 2: try to remove it 
+            # test 2: rename to a massive string
             tube = self.get_tube()
             if not tube: continue
-            packet = build_packet(SSH_FXP_REMOVE, self.req_id, fname)
+            new_fname = build_string(self.target_dir + b"/fuzzed_rename_" + b"A" * 1000)
+            packet = build_packet(SSH_FXP_RENAME, self.req_id, fname + new_fname)
             tube.send_raw(packet)
             resp = tube.recv_raw()
-            self.analyze(packet, resp, f"phase 3 - remove {f.decode('utf-8')}")
+            self.analyze(packet, resp, f"phase 3 - rename {f.decode('utf-8')}")
             self.req_id += 1
             tube.close()
+
+            # test 3: create a symlink with a format string payload
+            tube = self.get_tube()
+            if not tube: continue
+            link_fname = build_string(self.target_dir + b"/link_%n%n%n%n")
+            packet = build_packet(SSH_FXP_SYMLINK, self.req_id, link_fname + fname)
+            tube.send_raw(packet)
+            resp = tube.recv_raw()
+            self.analyze(packet, resp, f"phase 3 - symlink {f.decode('utf-8')}")
+            self.req_id += 1
+            tube.close()
+            
+            # test 4: try to remove it 
+            #tube = self.get_tube()
+            #if not tube: continue
+            #packet = build_packet(SSH_FXP_REMOVE, self.req_id, fname)
+            #tube.send_raw(packet)
+            #resp = tube.recv_raw()
+            #self.analyze(packet, resp, f"phase 3 - remove {f.decode('utf-8')}")
+            #self.req_id += 1
+            #tube.close()
+
+    def run_concurrency_fuzzing(self):
+        log.info("starting phase 4: parallel session & race condition fuzzing")
+        tubes = []
+        max_sessions = 15
+        
+        log.info(f"attempting to spawn {max_sessions} parallel sftp sessions...")
+        for i in range(max_sessions):
+            t = SFTPTube(self.args.target, self.args.port, self.args.user, self.args.password)
+            if t.connect() and self.init_session(t):
+                tubes.append(t)
+            else:
+                log.warning(f"failed to open session {i+1}")
+                
+        log.success(f"successfully opened {len(tubes)}/{max_sessions} concurrent sessions")
+        
+        if not tubes:
+            log.warning("no sessions opened. skipping race condition test.")
+            return
+
+        log.info("smashing the exact same file from all sessions at the exact same microsecond...")
+        
+        # force all threads to wait at this barrier before sending the packet
+        barrier = threading.Barrier(len(tubes))
+        
+        def slam_file(tube, idx):
+            # open the file for writing + creating
+            fname = build_string(self.target_dir + b"/race_test_shared.txt")
+            
+            # 0x1B (read|write|creat|trunc) 
+            pflags = p32(0x0000001B)
+            attrs = p32(0)
+            pkt = build_packet(SSH_FXP_OPEN, self.req_id + idx, fname + pflags + attrs)
+            
+            # wait for everyone to be ready so it's a perfect race condition
+            barrier.wait()
+            
+            tube.send_raw(pkt)
+            resp = tube.recv_raw()
+            
+            if resp in (b"", b"ERROR"):
+                log.warning(f"thread {idx} blocked! server forcefully dropped the connection (EOF).")
+                return
+            elif resp == b"TIMEOUT":
+                log.warning(f"thread {idx} blocked! server timed out.")
+                return
+
+            # check if we got a handle back (type 104)
+            if len(resp) > 13 and resp[4] == SSH_FXP_HANDLE:
+                hlen = u32(resp[9:13])
+                handle = resp[13:13+hlen]
+                
+                # try to write overlapping data
+                h_str = p32(len(handle)) + handle
+                offset = p64(0) # everyone writes to byte 0
+                data = f"ALL HAIL THREAD {idx} ".encode() * 50
+                d_str = p32(len(data)) + data
+                
+                wpkt = build_packet(SSH_FXP_WRITE, self.req_id + idx + 100, h_str + offset + d_str)
+                tube.send_raw(wpkt)
+                tube.recv_raw() # wait for write to finish
+                
+                # explicitly close the handle so the server actually saves it to disk
+                cpkt = build_packet(SSH_FXP_CLOSE, self.req_id + idx + 200, h_str)
+                tube.send_raw(cpkt)
+                tube.recv_raw()
+            else:
+                # unpack the sftp status to see exactly why it failed
+                if len(resp) >= 5 and resp[4] == SSH_FXP_STATUS:
+                    scode = u32(resp[9:13]) if len(resp) >= 13 else "???"
+                    msg = "unknown error"
+                    if len(resp) >= 17:
+                        msg_len = u32(resp[13:17])
+                        if len(resp) >= 17 + msg_len:
+                            msg = resp[17:17+msg_len].decode('utf-8', errors='ignore')
+                    log.warning(f"thread {idx} blocked! status: {scode} - {msg}")
+                else:
+                    log.warning(f"thread {idx} blocked! unexpected resp bytes: {repr(resp[:20])}")
+        
+        threads = []
+        for i, t in enumerate(tubes):
+            th = threading.Thread(target=slam_file, args=(t, i))
+            threads.append(th)
+            th.start()
+            
+        # wait for the dust to settle
+        for th in threads:
+            th.join()
+            
+        log.success("race condition payload delivered. checking if server survived...")
+        if self.check_alive():
+            log.success("server is still breathing")
+        else:
+            log.critical(f"SERVER CRASHED during concurrent upload! port {self.args.port} is down")
+            
+        for t in tubes:
+            t.close()
 
     def analyze(self, packet, resp, ctx):
         # cap logs so we dont flood the terminal on huge buffers
@@ -398,7 +522,7 @@ if __name__ == "__main__":
     parser.add_argument("-p", "--port", type=int, default=22)
     parser.add_argument("-u", "--user", required=True)
     parser.add_argument("-P", "--password", required=True)
-    parser.add_argument("--mode", choices=['app', 'proto', 'interact', 'all'], default='all')
+    parser.add_argument("--mode", choices=['app', 'proto', 'interact', 'race', 'all'], default='all')
     
     args = parser.parse_args()
     fuzzer = Fuzzer(args)
@@ -409,3 +533,5 @@ if __name__ == "__main__":
         fuzzer.run_proto_fuzzing()
     if args.mode in ['interact', 'all']:
         fuzzer.run_interaction_fuzzing()
+    if args.mode in ['race', 'all']:
+        fuzzer.run_concurrency_fuzzing()
