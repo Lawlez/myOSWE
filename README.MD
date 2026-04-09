@@ -107,6 +107,8 @@ Originally in this repository I documented my jorney to becoming an Offensive Se
 </table>
 <br/>
 
+![OSINT](./osint.jpeg)
+
 ### shell script brackets cheatsheet
 
 ![shell script brackets](./shell-script-brackets.jpeg)
